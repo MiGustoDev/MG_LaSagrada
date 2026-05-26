@@ -16,7 +16,7 @@ export default function Header() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
       isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
     }`}>
-      <div className="bg-surface-container-lowest/60 backdrop-blur-sm border-b border-outline-variant/20">
+      <div className="bg-surface-container-lowest/60 backdrop-blur-md border-b border-outline-variant/20">
         <div className="flex justify-center items-center w-full px-margin-mobile py-2 max-w-container-max mx-auto">
           <img 
             src="/Logo Mi Gusto 2025.png" 
