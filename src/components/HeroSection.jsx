@@ -13,7 +13,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full aspect-video md:aspect-[21/9] overflow-hidden hero-gradient flex items-center justify-center group">
+    <section className="relative w-full h-screen overflow-hidden hero-gradient flex items-center justify-center group">
       <div className="absolute inset-0 z-0" style={{ transform: `translateY(${parallaxOffset}px)` }}>
         <img
           className="w-full h-full object-cover opacity-60 mix-blend-overlay"
