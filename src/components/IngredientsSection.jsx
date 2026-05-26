@@ -8,7 +8,7 @@ export default function IngredientsSection() {
   };
 
   return (
-    <section className="w-full min-h-screen bg-transparent px-8 md:px-16 lg:px-24 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center justify-items-center relative z-10">
+    <section className="w-full min-h-screen bg-[#f5f0e8] px-8 md:px-16 lg:px-24 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center justify-items-center relative z-10">
       {/* Images */}
       <div className="relative order-2 lg:order-1 w-full max-w-[450px] mx-auto">
         <div className="relative z-10 flex flex-col -space-y-24 items-center">
@@ -60,18 +60,18 @@ export default function IngredientsSection() {
           <h3 className="font-display-serif text-5xl md:text-headline-xl text-secondary-fixed tracking-widest leading-none">
             LA SAGRADA
           </h3>
-          <p className="font-label-sm text-on-surface-variant tracking-[0.4em] border-y border-outline-variant/30 py-2 inline-block">
+          <p className="font-label-sm text-black/50 tracking-[0.4em] border-y border-black/20 py-2 inline-block">
             UN RITUAL HECHO PARA COMPARTIR
           </p>
         </div>
 
-        <div className="flex items-center justify-center lg:justify-start gap-gutter opacity-60 grayscale hover:grayscale-0 transition-all">
-          <span className="font-headline-lg-mobile italic text-on-surface">Locos X el Asado</span>
-          <div className="w-[1px] h-10 bg-outline-variant"></div>
-          <span className="font-headline-lg-mobile font-bold text-on-surface">Mi Gusto</span>
+        <div className="flex items-center justify-center lg:justify-start gap-gutter transition-all">
+          <span className="font-headline-lg-mobile italic text-black">Locos X el Asado</span>
+          <div className="w-[1px] h-10 bg-black/30"></div>
+          <span className="font-headline-lg-mobile font-bold text-black">Mi Gusto</span>
         </div>
 
-        <div className="space-y-4 md:space-y-6 text-on-surface-variant font-body-md text-base md:text-lg">
+        <div className="space-y-4 md:space-y-6 text-black font-body-md text-base md:text-lg">
           <p className="leading-relaxed">
             Dos mundos colisionan en un ritual de sabor sin precedentes. La maestría del asado se fusiona con la
             innovación de la empanada perfecta para crear una experiencia sensorial que desafía lo convencional.

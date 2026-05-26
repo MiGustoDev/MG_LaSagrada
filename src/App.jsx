@@ -14,9 +14,9 @@ function App() {
         <HeroSection />
         <CountdownSection />
         <IngredientsSection />
+        <PreLaunchMarquee />
       </main>
       <PreLaunchSection />
-      <PreLaunchMarquee />
       <Footer />
     </div>
   );

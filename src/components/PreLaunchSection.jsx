@@ -58,26 +58,15 @@ export default function PreLaunchSection() {
 
   return (
     <>
-      {/* Background Decoration */}
-      <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-primary/10 blur-[120px]"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary/10 blur-[120px]"></div>
-        <img
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30 grayscale"
-          alt="A cinematic, ethereal background showcasing swirling celestial clouds"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTsH900OASavFxipgEY3ACTGpVfY7aWioiNggAxlghBjQCa08SXoWmqFMN7QOGeQxEWdF3cndPxhWYtuYhWv8G2RBxAy7KFdqDLFPkEtljUqnvV9xO66_3T6J7iwPCJ0HeTmhFH_YvdqTTYrAha3DLYVzoKLIhGGvF3LAJPa-VZQOrNo2xw_0_y_o9crg_U79uMZNFTdvqnNvG1yQRpHQW2HLw-8rg8BfkwB33eKyQ8oA5cH_kJFXcKJaeVS7gjk3PdGc6NMmOQA"
-          style={{ transform: `translateY(${scrollOffset}px) scale(${1 + scrollOffset * 0.0005})` }}
-        />
-      </div>
 
       {/* Main Content */}
-      <main className="relative min-h-screen flex flex-col items-center justify-center pt-stack-lg pb-stack-lg px-margin-mobile">
+      <main className="relative min-h-screen bg-[#f5f0e8] flex flex-col items-center justify-center pt-stack-lg pb-stack-lg px-margin-mobile">
         <div className="max-w-container-max w-full flex flex-col items-center gap-stack-lg">
           {/* Central Card */}
           <div className="w-full max-w-4xl bg-white/90 dark:bg-surface-bright/95 p-8 md:p-16 relative overflow-hidden flex flex-col md:flex-row gap-12 items-center justify-between border border-white/20 shadow-2xl">
             {/* Left Side: Coming Soon & Email */}
             <div className="flex flex-col gap-8 w-full md:w-1/2 order-2 md:order-1">
-              <div className="stencil-text font-headline-xl text-headline-lg-mobile md:text-6xl tracking-widest opacity-80 leading-none">
+              <div className="font-headline-xl text-headline-lg-mobile md:text-6xl tracking-widest opacity-20 leading-none uppercase text-surface-dim">
                 COMING<br />SOON
               </div>
 
@@ -160,7 +149,7 @@ export default function PreLaunchSection() {
           </div>
 
           {/* Branding Slogan */}
-          <p className="font-display-serif text-display-serif text-center text-primary italic max-w-2xl px-4">
+          <p className="font-display-serif text-display-serif text-center text-on-secondary-container italic max-w-2xl px-4">
             "Un gusto hecho ritual, elevado al infinito."
           </p>
         </div>

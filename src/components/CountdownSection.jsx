@@ -48,7 +48,7 @@ export default function CountdownSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-screen bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+    <section ref={sectionRef} className="relative h-screen bg-[#f5f0e8] overflow-hidden flex items-center justify-center">
       {/* Decorative Clouds with Images - Animated */}
       <div 
         className="absolute left-0 top-20 opacity-60 hidden md:block pointer-events-none"
@@ -126,44 +126,44 @@ export default function CountdownSection() {
         <div className="flex items-center gap-stack-sm md:gap-gutter" style={{ opacity: countdownOpacity, transition: 'opacity 0.5s ease-out' }}>
           {/* Days */}
           <div className="flex flex-col items-center">
-            <div className="bg-surface-container-high border border-outline-variant p-4 md:p-8 flex gap-2">
-              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-white">0</span>
-              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-white">4</span>
+            <div className="bg-white/80 border border-[#d6cfc4] p-4 md:p-8 flex gap-2 shadow-md">
+              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-surface-dim">0</span>
+              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-surface-dim">4</span>
             </div>
-            <span className="font-label-sm text-on-surface-variant mt-2 uppercase">Días</span>
+            <span className="font-label-sm text-surface-dim/60 mt-2 uppercase">Días</span>
           </div>
 
-          <span className="font-headline-xl text-primary">:</span>
+          <span className="font-headline-xl text-on-secondary-container">:</span>
 
           {/* Hours */}
           <div className="flex flex-col items-center">
-            <div className="bg-surface-container-high border border-outline-variant p-4 md:p-8 flex gap-2">
-              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-white">1</span>
-              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-white">2</span>
+            <div className="bg-white/80 border border-[#d6cfc4] p-4 md:p-8 flex gap-2 shadow-md">
+              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-surface-dim">1</span>
+              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-surface-dim">2</span>
             </div>
-            <span className="font-label-sm text-on-surface-variant mt-2 uppercase">Horas</span>
+            <span className="font-label-sm text-surface-dim/60 mt-2 uppercase">Horas</span>
           </div>
 
-          <span className="font-headline-xl text-primary">:</span>
+          <span className="font-headline-xl text-on-secondary-container">:</span>
 
           {/* Minutes */}
           <div className="flex flex-col items-center">
-            <div className="bg-surface-container-high border border-outline-variant p-4 md:p-8 flex gap-2">
-              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-white">3</span>
-              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-white">5</span>
+            <div className="bg-white/80 border border-[#d6cfc4] p-4 md:p-8 flex gap-2 shadow-md">
+              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-surface-dim">3</span>
+              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-surface-dim">5</span>
             </div>
-            <span className="font-label-sm text-on-surface-variant mt-2 uppercase">Mins</span>
+            <span className="font-label-sm text-surface-dim/60 mt-2 uppercase">Mins</span>
           </div>
 
-          <span className="font-headline-xl text-primary">:</span>
+          <span className="font-headline-xl text-on-secondary-container">:</span>
 
           {/* Seconds */}
           <div className="flex flex-col items-center">
-            <div className="bg-surface-container-high border border-outline-variant p-4 md:p-8 flex gap-2">
-              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-white">4</span>
-              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-white">8</span>
+            <div className="bg-white/80 border border-[#d6cfc4] p-4 md:p-8 flex gap-2 shadow-md">
+              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-surface-dim">4</span>
+              <span className="font-headline-xl text-headline-lg md:text-headline-xl text-surface-dim">8</span>
             </div>
-            <span className="font-label-sm text-on-surface-variant mt-2 uppercase">Segs</span>
+            <span className="font-label-sm text-surface-dim/60 mt-2 uppercase">Segs</span>
           </div>
         </div>
       </div>
