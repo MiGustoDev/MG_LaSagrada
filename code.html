@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LANZAMIENTO | MI GUSTO x LA SAGRADA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800;900&amp;family=Work+Sans:wght@400;600&amp;family=Playfair+Display:wght@700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#12121d",
+                    "primary": "#c9bfff",
+                    "inverse-on-surface": "#302f3b",
+                    "error": "#ffb4ab",
+                    "on-background": "#e3e0f1",
+                    "on-tertiary": "#003642",
+                    "on-primary-container": "#e3dbff",
+                    "on-secondary-fixed-variant": "#544600",
+                    "on-surface": "#e3e0f1",
+                    "primary-fixed": "#e5deff",
+                    "surface-container-highest": "#343440",
+                    "on-tertiary-container": "#a9e9ff",
+                    "secondary-fixed": "#ffe16d",
+                    "surface-container-lowest": "#0d0d18",
+                    "inverse-primary": "#5d2ffa",
+                    "tertiary": "#4cd6fb",
+                    "on-primary": "#2f009c",
+                    "on-secondary-fixed": "#221b00",
+                    "secondary-container": "#ffdb3c",
+                    "surface-bright": "#383845",
+                    "outline-variant": "#484456",
+                    "on-secondary": "#3a3000",
+                    "surface-variant": "#343440",
+                    "surface": "#12121d",
+                    "surface-container-low": "#1b1a26",
+                    "inverse-surface": "#e3e0f1",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#e9c400",
+                    "background": "#12121d",
+                    "surface-tint": "#c9bfff",
+                    "primary-fixed-dim": "#c9bfff",
+                    "tertiary-fixed": "#b3ebff",
+                    "tertiary-container": "#006c83",
+                    "outline": "#938ea3",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#004e5f",
+                    "tertiary-fixed-dim": "#4cd6fb",
+                    "on-secondary-container": "#725f00",
+                    "secondary": "#fff9ef",
+                    "on-tertiary-fixed": "#001f27",
+                    "primary-container": "#6236ff",
+                    "on-primary-fixed": "#1b0063",
+                    "surface-container": "#1f1e2a",
+                    "on-primary-fixed-variant": "#4500d8",
+                    "on-surface-variant": "#c9c3da",
+                    "on-error": "#690005",
+                    "surface-container-high": "#292935"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-md": "24px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px",
+                    "stack-lg": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Anybody"],
+                    "headline-xl": ["Anybody"],
+                    "headline-lg-mobile": ["Anybody"],
+                    "display-serif": ["Playfair Display"],
+                    "body-md": ["Work Sans"],
+                    "label-sm": ["Work Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["48px", {"lineHeight": "52px", "fontWeight": "800"}],
+                    "headline-xl": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "36px", "fontWeight": "800"}],
+                    "display-serif": ["42px", {"lineHeight": "48px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, #12121d 0%, #2f009c 50%, #12121d 100%);
+        }
+        .cloud-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .sun-glow {
+            filter: drop-shadow(0 0 30px rgba(255, 225, 109, 0.4));
+        }
+    </style>
+</head>
+<body class="bg-surface-dim text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-container-lowest/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-margin-mobile py-4 max-w-container-max mx-auto">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile tracking-tighter text-primary dark:text-primary-fixed">MI GUSTO x LA SAGRADA</h1>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Title Header -->
+<section class="max-w-container-max mx-auto px-margin-mobile pt-stack-lg pb-stack-md text-center">
+<h2 class="font-headline-xl text-headline-xl uppercase tracking-tighter text-on-surface">LANZAMIENTO</h2>
+</section>
+<!-- Hero Section -->
+<section class="relative w-full aspect-video md:aspect-[21/9] overflow-hidden hero-gradient flex items-center justify-center group">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60 mix-blend-overlay" data-alt="A macro cinematic shot of a golden-brown flamin hot empanada with a vibrant purple atmospheric background. The lighting is dramatic and theatrical, highlighting the flaky texture of the pastry and the spicy red dusting. Wisps of steam rise from the product, creating an elevated and indulgent food photography style consistent with a luxury brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcytLRp_RGwWmYix5gaNInOW7nKMz-51qn2c1Qy1GrF-tcB6_alq7Wm1jjvsZ2Jfl5yjlQ1Cec6AR52SYy5WH5dc1JpLF8LM573MAuYquNJ-VU1P17p2Aa8fNz5evfsVSOUElTREz4P1iJS7SwtzSQ-waRmLlstYAZwCevJ5ZitLCd4F4_4j31JKuV70WFu9xKmVus_gpLMNwyTfV8sweDI27DHF4tFDCVq1xQiJfVDLKVHrRSEGiWpVKx7xh_j379hkdD8KJT2MU"/>
+</div>
+<div class="relative z-10 text-center flex flex-col items-center gap-stack-md">
+<div class="scale-150 mb-stack-md">
+<span class="font-display-serif text-headline-xl text-white italic drop-shadow-2xl">Mi Gusto</span>
+<p class="font-headline-lg text-secondary-fixed tracking-[0.2em] -mt-4 drop-shadow-lg">Flamin' Hot</p>
+</div>
+<button class="bg-secondary-container text-on-secondary-container font-headline-lg px-stack-lg py-stack-sm uppercase tracking-widest hover:bg-transparent hover:border-2 hover:border-secondary-container hover:text-secondary-fixed transition-all duration-300">
+                    QUIERO PROBARLA
+                </button>
+</div>
+</section>
+<!-- Countdown Section -->
+<section class="relative py-stack-lg bg-surface-container-lowest overflow-hidden">
+<!-- Decorative Clouds -->
+<div class="absolute left-10 top-10 cloud-float opacity-30 hidden md:block">
+<span class="material-symbols-outlined text-outline text-[120px]">cloud</span>
+</div>
+<div class="absolute right-10 bottom-10 cloud-float opacity-30 hidden md:block" style="animation-delay: -3s">
+<span class="material-symbols-outlined text-outline text-[160px]">cloud</span>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile flex flex-col items-center">
+<div class="relative mb-stack-md">
+<div class="sun-glow">
+<span class="material-symbols-outlined text-secondary-fixed text-[200px]" style="font-variation-settings: 'FILL' 1;">light_mode</span>
+</div>
+</div>
+<div class="flex items-center gap-stack-sm md:gap-gutter">
+<div class="flex flex-col items-center">
+<div class="bg-surface-container-high border border-outline-variant p-4 md:p-8 flex gap-2">
+<span class="font-headline-xl text-headline-lg md:text-headline-xl text-white">0</span>
+<span class="font-headline-xl text-headline-lg md:text-headline-xl text-white">4</span>
+</div>
+<span class="font-label-sm text-on-surface-variant mt-2 uppercase">Días</span>
+</div>
+<span class="font-headline-xl text-primary">:</span>
+<div class="flex flex-col items-center">
+<div class="bg-surface-container-high border border-outline-variant p-4 md:p-8 flex gap-2">
+<span class="font-headline-xl text-headline-lg md:text-headline-xl text-white">1</span>
+<span class="font-headline-xl text-headline-lg md:text-headline-xl text-white">2</span>
+</div>
+<span class="font-label-sm text-on-surface-variant mt-2 uppercase">Horas</span>
+</div>
+<span class="font-headline-xl text-primary">:</span>
+<div class="flex flex-col items-center">
+<div class="bg-surface-container-high border border-outline-variant p-4 md:p-8 flex gap-2">
+<span class="font-headline-xl text-headline-lg md:text-headline-xl text-white">3</span>
+<span class="font-headline-xl text-headline-lg md:text-headline-xl text-white">5</span>
+</div>
+<span class="font-label-sm text-on-surface-variant mt-2 uppercase">Mins</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Ingredients Section -->
+<section class="py-stack-lg bg-surface max-w-container-max mx-auto px-margin-mobile grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+<div class="relative order-2 lg:order-1">
+<!-- Ingredients Image -->
+<div class="relative z-10 flex flex-col -space-y-24 items-center">
+<img class="w-80 h-80 object-cover border-4 border-surface shadow-2xl z-20" data-alt="A professional studio product shot of two stack empanadas sliced open to reveal a rich, savory beef filling. The scene is lit with high-contrast, moody lighting that emphasizes textures. The background is a clean, dark surface. The style is premium editorial food photography, focusing on the craftsmanship and quality of the ingredients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLj434ScCBw90Z3dOZ8dr1tBfy-PFxAwxhpDrNOxnZxBvk3YlI9HnUmkFzDv-BoVvX-4qveBBLtSsgAD4RVM3V5ju_1VO63emFcpESGuKTT3gsObfevfvV_MAX0PcuJdVUz_2GrQvGB0prez_aHpuLlFv67sbnqpBHLXRyxQchRLNzIO6z67nzn0V946z7byUlwIxcFda_19DMToUIbB1gE_zigGL4oUGc_AXBMEEgoy4g7LqjvRbvZ2Ly-5xOLJzjzvzK8DZmBMg"/>
+<img class="w-72 h-72 object-cover border-4 border-surface shadow-2xl z-10 -rotate-6" data-alt="Close-up detail of spicy red tortilla chip crumbles and creamy white sauce dripping over a golden pastry. The lighting is warm and cinematic, using shadows to create depth. The vibrant red of the spices contrasts sharply with the creamy sauce, evoking a sense of intense flavor and premium food quality in an elegant culinary setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMYN5xY2Per9BSrxuZJGbFX1zoudTBrCr1n6_Z7tzwxNBqCAF8Jb7DfPs0aH1mE4M6WpL0jsDytVkdyWZvJwuvDjz0-X7q1I4-SiZZVEn3yHF7aEBObdI_8xzCrADdgfbKyMSoahI-_k-Pc_fD5FDskGA9NMaWkNIHhAVjqTnTUNfAjZV0Sz_8Ljhn_quj2vEsWBbh15rk04aS6ktW6G0sEdTX3QJ9tSfjjFB0Ru5opRr_6W3xHLB6JEz7JE-kXTJhKTkCD6deW4s"/>
+</div>
+<!-- Callouts -->
+<div class="absolute top-0 -left-4 glass-card p-4 z-30 max-w-[150px]">
+<div class="flex items-center gap-2 mb-1">
+<span class="w-8 h-[1px] bg-primary"></span>
+<span class="font-label-sm text-primary uppercase">Topping</span>
+</div>
+<p class="text-[14px] text-on-surface font-semibold">Doritos Flaming Hot</p>
+</div>
+<div class="absolute bottom-10 -right-4 glass-card p-4 z-30 max-w-[180px]">
+<div class="flex items-center gap-2 mb-1">
+<span class="w-8 h-[1px] bg-tertiary"></span>
+<span class="font-label-sm text-tertiary uppercase">Salsa</span>
+</div>
+<p class="text-[14px] text-on-surface font-semibold">Crema ácida con Tajín</p>
+</div>
+</div>
+<div class="order-1 lg:order-2 flex flex-col gap-stack-md text-center lg:text-left">
+<div class="space-y-4">
+<h3 class="font-display-serif text-headline-xl text-secondary-fixed tracking-widest leading-none">LA SAGRADA</h3>
+<p class="font-label-sm text-on-surface-variant tracking-[0.4em] border-y border-outline-variant/30 py-2 inline-block">UN RITUAL HECHO PARA COMPARTIR</p>
+</div>
+<div class="flex items-center justify-center lg:justify-start gap-gutter opacity-60 grayscale hover:grayscale-0 transition-all">
+<span class="font-headline-lg-mobile italic text-on-surface">Locos X el Asado</span>
+<div class="w-[1px] h-10 bg-outline-variant"></div>
+<span class="font-headline-lg-mobile font-bold text-on-surface">Mi Gusto</span>
+</div>
+<div class="space-y-4 max-w-md mx-auto lg:mx-0">
+<p class="text-on-surface-variant leading-relaxed">
+                        Dos mundos colisionan en un ritual de sabor sin precedentes. La maestría del asado se fusiona con la innovación de la empanada perfecta para crear una experiencia sensorial que desafía lo convencional.
+                    </p>
+<p class="text-on-surface-variant leading-relaxed">
+                        Cada bocado es una coreografía de texturas: el crocante audaz del topping, la suavidad de la masa artesanal y el corazón intenso de nuestra receta secreta de asado.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Marquee Ticker -->
+<div class="bg-surface-container-lowest py-6 border-y border-outline-variant/20 marquee-container overflow-hidden">
+<div class="marquee-content flex gap-stack-lg items-center">
+<span class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tighter shrink-0">UN GUSTO HECHO RITUAL</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tighter shrink-0">UN GUSTO HECHO RITUAL</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tighter shrink-0">UN GUSTO HECHO RITUAL</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<!-- Duplicate for loop -->
+<span class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tighter shrink-0">UN GUSTO HECHO RITUAL</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tighter shrink-0">UN GUSTO HECHO RITUAL</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tighter shrink-0">UN GUSTO HECHO RITUAL</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-surface-dim full-width relative border-t border-outline-variant/20">
+<div class="flex flex-col items-center gap-stack-md py-stack-lg w-full px-margin-mobile text-center">
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-tighter">MI GUSTO</div>
+<div class="flex gap-stack-md">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all" href="#">Privacy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all" href="#">Terms</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all" href="#">Contact</a>
+</div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mt-stack-md">
+                © 2024 MI GUSTO. UN GUSTO HECHO RITUAL.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for ingredients callouts
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.05) translateY(-5px)';
+                card.style.transition = 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImg = document.querySelector('.hero-gradient img');
+            if (heroImg) {
+                heroImg.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
+</body></html>
