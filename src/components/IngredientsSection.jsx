@@ -1,87 +1,247 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function IngredientsSection() {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [cloudLeftOffset, setCloudLeftOffset] = useState(-200);
+  const [cloudRightOffset, setCloudRightOffset] = useState(200);
+  const [sunOffset, setSunOffset] = useState(200);
+  const [countdown, setCountdown] = useState({ days: 4, hours: 12, mins: 35, secs: 48 });
+  const sectionRef = useRef(null);
 
-  const handleCardHover = (cardId, isHovering) => {
-    setHoveredCard(isHovering ? cardId : null);
-  };
+  // Parallax scroll effects for clouds and sun
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const sectionTop = sectionRect.top;
+      const sectionHeight = sectionRect.height;
+      const windowHeight = window.innerHeight;
+
+      // Check if section is in view
+      const inView = sectionTop < windowHeight && sectionTop + sectionHeight > 0;
+
+      if (inView) {
+        // Calculate progress (0 to 1) as section comes into view
+        const progress = Math.max(0, Math.min(1, (windowHeight - sectionTop) / (windowHeight + sectionHeight)));
+        
+        // Cloud left animates from left to right
+        const cloudLeftProgress = Math.max(0, (progress - 0.1) / 0.5);
+        setCloudLeftOffset(-150 + cloudLeftProgress * 150);
+        
+        // Cloud right animates from right to left
+        const cloudRightProgress = Math.max(0, (progress - 0.1) / 0.5);
+        setCloudRightOffset(150 - cloudRightProgress * 150);
+        
+        // Sun animates from bottom
+        const sunProgress = Math.max(0, (progress - 0.1) / 0.5);
+        setSunOffset(80 - sunProgress * 80);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Countdown timer logic
+  useEffect(() => {
+    const target = new Date();
+    target.setDate(target.getDate() + 4);
+    target.setHours(target.getHours() + 12);
+    target.setMinutes(target.getMinutes() + 35);
+    target.setSeconds(target.getSeconds() + 48);
+
+    const interval = setInterval(() => {
+      const current = new Date();
+      const diff = target - current;
+
+      if (diff <= 0) {
+        setCountdown({ days: 0, hours: 0, mins: 0, secs: 0 });
+        clearInterval(interval);
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      setCountdown({ days: d, hours: h, mins: m, secs: s });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="w-full min-h-screen bg-[#f5f0e8] px-8 md:px-16 lg:px-24 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center justify-items-center relative z-10">
-      {/* Images */}
-      <div className="relative order-2 lg:order-1 w-full max-w-[450px] mx-auto">
-        <div className="relative z-10 flex flex-col -space-y-24 items-center">
-          <img
-            className="w-80 h-80 sm:w-96 sm:h-96 object-cover border-4 border-surface-container shadow-2xl z-20 rounded-xl transition-all duration-300 hover:scale-[1.02]"
-            alt="A professional studio product shot of two stack empanadas sliced open to reveal a rich, savory beef filling. The scene is lit with high-contrast, moody lighting that emphasizes textures. The background is a clean, dark surface. The style is premium editorial food photography, focusing on the craftsmanship and quality of the ingredients."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLj434ScCBw90Z3dOZ8dr1tBfy-PFxAwxhpDrNOxnZxBvk3YlI9HnUmkFzDv-BoVvX-4qveBBLtSsgAD4RVM3V5ju_1VO63emFcpESGuKTT3gsObfevfvV_MAX0PcuJdVUz_2GrQvGB0prez_aHpuLlFv67sbnqpBHLXRyxQchRLNzIO6z67nzn0V946z7byUlwIxcFda_19DMToUIbB1gE_zigGL4oUGc_AXBMEEgoy4g7LqjvRbvZ2Ly-5xOLJzjzvzK8DZmBMg"
-          />
-          <img
-            className="w-72 h-72 sm:w-80 sm:h-80 object-cover border-4 border-surface-container shadow-2xl z-10 -rotate-6 rounded-xl transition-all duration-300 hover:-rotate-3 hover:scale-[1.02]"
-            alt="Close-up detail of spicy red tortilla chip crumbles and creamy white sauce dripping over a golden pastry. The lighting is warm and cinematic, using shadows to create depth. The vibrant red of the spices contrasts sharply with the creamy sauce, evoking a sense of intense flavor and premium food quality in an elegant culinary setting."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMYN5xY2Per9BSrxuZJGbFX1zoudTBrCr1n6_Z7tzwxNBqCAF8Jb7DfPs0aH1mE4M6WpL0jsDytVkdyWZvJwuvDjz0-X7q1I4-SiZZVEn3yHF7aEBObdI_8xzCrADdgfbKyMSoahI-_k-Pc_fD5FDskGA9NMaWkNIHhAVjqTnTUNfAjZV0Sz_8Ljhn_quj2vEsWBbh15rk04aS6ktW6G0sEdTX3QJ9tSfjjFB0Ru5opRr_6W3xHLB6JEz7JE-kXTJhKTkCD6deW4s"
-          />
-        </div>
+    <section ref={sectionRef} className="relative w-full min-h-screen bg-[#f5f0e8] overflow-hidden flex flex-col justify-between py-12 md:py-16 z-10">
+      
+      {/* Decorative Sun in background of Top Half */}
+      <div 
+        className="absolute inset-x-0 top-4 flex justify-center pointer-events-none z-0 opacity-40 md:opacity-50"
+        style={{ transform: `translateY(${sunOffset}px)` }}
+      >
+        <img 
+          src="/sol.png" 
+          alt="Sol" 
+          className="h-36 w-36 md:h-44 md:w-44 object-contain"
+        />
+      </div>
 
-        {/* Callouts */}
-        <div
-          className={`absolute top-4 -left-8 sm:-left-12 glass-card p-4 z-30 max-w-[160px] transition-all duration-300 ${
-            hoveredCard === 'topping' ? 'scale-105 -translate-y-1' : ''
-          }`}
-          onMouseEnter={() => handleCardHover('topping', true)}
-          onMouseLeave={() => handleCardHover('topping', false)}
-        >
-          <div className="flex items-center gap-2 mb-1">
-            <span className="w-8 h-[1px] bg-primary"></span>
-            <span className="font-label-sm text-primary uppercase">Topping</span>
-          </div>
-          <p className="text-[14px] text-on-surface font-semibold">Doritos Flaming Hot</p>
-        </div>
+      {/* Decorative Clouds */}
+      <div 
+        className="absolute left-[3%] top-20 opacity-55 hidden md:block pointer-events-none z-0"
+        style={{ transform: `translateX(${cloudLeftOffset}px)` }}
+      >
+        <img src="/nube.png" alt="Nube" className="h-20 object-contain" />
+      </div>
+      <div 
+        className="absolute right-[3%] top-1/3 opacity-55 hidden md:block pointer-events-none z-0"
+        style={{ transform: `translateX(${-cloudRightOffset}px)` }}
+      >
+        <img src="/nube.png" alt="Nube" className="h-24 object-contain" />
+      </div>
 
-        <div
-          className={`absolute bottom-16 -right-8 sm:-right-12 glass-card p-4 z-30 max-w-[190px] transition-all duration-300 ${
-            hoveredCard === 'salsa' ? 'scale-105 -translate-y-1' : ''
-          }`}
-          onMouseEnter={() => handleCardHover('salsa', true)}
-          onMouseLeave={() => handleCardHover('salsa', false)}
-        >
-          <div className="flex items-center gap-2 mb-1">
-            <span className="w-8 h-[1px] bg-tertiary"></span>
-            <span className="font-label-sm text-tertiary uppercase">Salsa</span>
+      {/* TOP HALF: Sun, Clouds, and Large Countdown Cards */}
+      <div className="relative w-full flex-1 flex flex-col items-center justify-center z-10 min-h-[40vh]">
+        <div className="flex items-center gap-2.5 md:gap-4">
+          
+          {/* Days */}
+          <div className="flex flex-col items-center">
+            <div className="flex gap-1.5">
+              {/* Tens */}
+              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
+                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
+                  {String(countdown.days).padStart(2, '0')[0]}
+                </span>
+              </div>
+              {/* Units */}
+              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
+                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
+                  {String(countdown.days).padStart(2, '0')[1]}
+                </span>
+              </div>
+            </div>
+            <span className="font-label-sm text-[10px] text-black/60 mt-2 uppercase font-semibold">Días</span>
           </div>
-          <p className="text-[14px] text-on-surface font-semibold">Crema ácida con Tajín</p>
+
+          <span className="font-headline-xl text-xl text-black/30 mb-6">:</span>
+
+          {/* Hours */}
+          <div className="flex flex-col items-center">
+            <div className="flex gap-1.5">
+              {/* Tens */}
+              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
+                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
+                  {String(countdown.hours).padStart(2, '0')[0]}
+                </span>
+              </div>
+              {/* Units */}
+              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
+                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
+                  {String(countdown.hours).padStart(2, '0')[1]}
+                </span>
+              </div>
+            </div>
+            <span className="font-label-sm text-[10px] text-black/60 mt-2 uppercase font-semibold">Horas</span>
+          </div>
+
+          <span className="font-headline-xl text-xl text-black/30 mb-6">:</span>
+
+          {/* Minutes */}
+          <div className="flex flex-col items-center">
+            <div className="flex gap-1.5">
+              {/* Tens */}
+              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
+                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
+                  {String(countdown.mins).padStart(2, '0')[0]}
+                </span>
+              </div>
+              {/* Units */}
+              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
+                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
+                  {String(countdown.mins).padStart(2, '0')[1]}
+                </span>
+              </div>
+            </div>
+            <span className="font-label-sm text-[10px] text-black/60 mt-2 uppercase font-semibold">Mins</span>
+          </div>
+
+          <span className="font-headline-xl text-xl text-black/30 mb-6">:</span>
+
+          {/* Seconds */}
+          <div className="flex flex-col items-center">
+            <div className="flex gap-1.5">
+              {/* Tens */}
+              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
+                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
+                  {String(countdown.secs).padStart(2, '0')[0]}
+                </span>
+              </div>
+              {/* Units */}
+              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
+                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
+                  {String(countdown.secs).padStart(2, '0')[1]}
+                </span>
+              </div>
+            </div>
+            <span className="font-label-sm text-[10px] text-black/60 mt-2 uppercase font-semibold">Segs</span>
+          </div>
+          
         </div>
       </div>
 
-      {/* Text Content */}
-      <div className="order-1 lg:order-2 flex flex-col gap-6 md:gap-8 text-center lg:text-left w-full max-w-xl">
-        <div className="space-y-4">
-          <h3 className="font-display-serif text-5xl md:text-headline-xl text-secondary-fixed tracking-widest leading-none">
-            LA SAGRADA
-          </h3>
-          <p className="font-label-sm text-black/50 tracking-[0.4em] border-y border-black/20 py-2 inline-block">
-            UN RITUAL HECHO PARA COMPARTIR
-          </p>
-        </div>
+      {/* BOTTOM HALF: Ingredients Image & Text Story (Two columns) */}
+      <div className="relative w-full flex-1 flex items-center justify-center z-10 max-w-container-max mx-auto px-6 md:px-12 mt-4 md:mt-8 min-h-[45vh]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 items-center justify-items-center w-full">
+          
+          {/* Left Column: Image */}
+          <div className="w-full flex items-center justify-center">
+            <img
+              className="max-h-[35vh] md:max-h-[42vh] w-auto object-contain transition-all duration-300 hover:scale-[1.02]"
+              alt="Ingredientes de La Sagrada"
+              src="/Ingredientes.png"
+            />
+          </div>
 
-        <div className="flex items-center justify-center lg:justify-start gap-gutter transition-all">
-          <span className="font-headline-lg-mobile italic text-black">Locos X el Asado</span>
-          <div className="w-[1px] h-10 bg-black/30"></div>
-          <span className="font-headline-lg-mobile font-bold text-black">Mi Gusto</span>
-        </div>
+          {/* Right Column: Text Content */}
+          <div className="flex flex-col gap-4 w-full max-w-[500px]">
+            <div className="space-y-2">
+              <h3 className="font-display-serif text-3xl md:text-4xl lg:text-5xl text-secondary-fixed tracking-widest leading-none">
+                LA SAGRADA
+              </h3>
+              <p className="font-label-sm text-black/50 tracking-[0.4em] border-y border-black/20 py-1.5 inline-block text-xs">
+                UN RITUAL HECHO PARA COMPARTIR
+              </p>
+            </div>
 
-        <div className="space-y-4 md:space-y-6 text-black font-body-md text-base md:text-lg">
-          <p className="leading-relaxed">
-            Dos mundos colisionan en un ritual de sabor sin precedentes. La maestría del asado se fusiona con la
-            innovación de la empanada perfecta para crear una experiencia sensorial que desafía lo convencional.
-          </p>
-          <p className="leading-relaxed">
-            Cada bocado es una coreografía de texturas: el crocante audaz del topping, la suavidad de la masa
-            artesanal y el corazón intenso de nuestra receta secreta de asado.
-          </p>
+            <div className="flex items-center gap-4 transition-all">
+              <span className="font-headline-lg-mobile italic text-black text-base md:text-lg">Locos X el Asado</span>
+              <div className="w-[1px] h-6 bg-black/30"></div>
+              <span className="font-headline-lg-mobile font-bold text-black text-base md:text-lg">Mi Gusto</span>
+            </div>
+
+            <div className="space-y-3 text-black font-body-md text-xs md:text-sm leading-relaxed">
+              <p>
+                Dos mundos colisionan en un ritual de sabor sin precedentes. La maestría del asado se fusiona con la
+                innovación de la empanada perfecta para crear una experiencia sensorial que desafía lo convencional.
+              </p>
+              <p>
+                Cada bocado es una coreografía de texturas: el crocante audaz del topping, la suavidad de la masa
+                artesanal y el corazón intenso de nuestra receta secreta de asado.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
+
     </section>
   );
 }
