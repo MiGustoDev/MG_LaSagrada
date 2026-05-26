@@ -1,5 +1,4 @@
 import Header from './components/Header';
-import TitleSection from './components/TitleSection';
 import HeroSection from './components/HeroSection';
 import CountdownSection from './components/CountdownSection';
 import IngredientsSection from './components/IngredientsSection';
@@ -13,7 +12,6 @@ function App() {
     <div className="dark">
       <Header />
       <main>
-        <TitleSection />
         <HeroSection />
         <CountdownSection />
         <IngredientsSection />

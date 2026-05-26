@@ -73,14 +73,6 @@ export default function PreLaunchSection() {
       {/* Main Content */}
       <main className="relative min-h-screen flex flex-col items-center justify-center pt-stack-lg pb-stack-lg px-margin-mobile">
         <div className="max-w-container-max w-full flex flex-col items-center gap-stack-lg">
-          {/* Title */}
-          <div className="text-center">
-            <h1 className="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-stack-sm tracking-tighter">
-              PRE LANZAMIENTO
-            </h1>
-            <div className="h-1 w-24 bg-primary mx-auto mb-stack-md"></div>
-          </div>
-
           {/* Central Card */}
           <div className="w-full max-w-4xl bg-white/90 dark:bg-surface-bright/95 p-8 md:p-16 relative overflow-hidden flex flex-col md:flex-row gap-12 items-center justify-between border border-white/20 shadow-2xl">
             {/* Left Side: Coming Soon & Email */}
