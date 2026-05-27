@@ -60,28 +60,28 @@ export default function PreLaunchSection() {
     <>
 
       {/* Main Content */}
-      <main className="relative min-h-screen bg-[#12121d] flex flex-col items-center justify-center pt-stack-lg pb-stack-lg px-margin-mobile">
+      <main className="relative min-h-screen bg-[#f5f0e8] flex flex-col items-center justify-center pt-stack-lg pb-stack-lg px-margin-mobile">
         <div className="max-w-container-max w-full flex flex-col items-center gap-stack-lg">
-          {/* Central Card */}
-          <div className="w-full max-w-4xl bg-transparent p-8 md:p-16 relative overflow-hidden flex flex-col md:flex-row gap-12 items-center justify-between border border-white/10 shadow-2xl">
+          {/* Central Card — Ultra-premium dark luxury box floating on light cream */}
+          <div className="w-full max-w-4xl bg-[#12121d] p-8 md:p-16 relative overflow-hidden flex flex-col md:flex-row gap-12 items-center justify-between border-2 border-[#ffe16d]/30 shadow-2xl rounded-2xl">
             {/* Left Side: Coming Soon & Email */}
             <div className="flex flex-col gap-8 w-full md:w-1/2 order-2 md:order-1">
-              <div className="font-headline-xl text-headline-lg-mobile md:text-6xl tracking-widest opacity-20 leading-none uppercase text-white">
+              <div className="font-headline-xl text-headline-lg-mobile md:text-6xl tracking-widest opacity-10 leading-none uppercase text-white">
                 COMING<br />SOON
               </div>
 
               {submitted ? (
-                <div className="font-headline-lg text-white animate-pulse">
+                <div className="font-headline-lg text-[#ffe16d] animate-pulse">
                   ¡GRACIAS POR UNIRTE AL RITUAL!
                 </div>
               ) : (
                 <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
-                  <p className="font-body-md text-white/80 text-sm uppercase tracking-wider font-semibold">
-                    Únete al ritual. Recibe el aviso.
+                  <p className="font-body-md text-white/90 text-sm uppercase tracking-wider font-semibold">
+                    Únete al ritual. <span className="text-[#ffe16d]">Recibe el aviso.</span>
                   </p>
                   <div className="relative group">
                     <input
-                      className="w-full bg-transparent border-0 border-b-2 border-white/20 py-4 px-0 font-headline-lg text-lg focus:outline-none focus:ring-0 focus:border-b-2 focus:border-white transition-all placeholder:text-gray-500 text-white uppercase tracking-widest outline-none shadow-none"
+                      className="w-full bg-transparent border-0 border-b-2 border-white/20 py-4 px-0 font-headline-lg text-lg focus:outline-none focus:ring-0 focus:border-b-2 focus:border-[#ffe16d] transition-all placeholder:text-white/30 text-white uppercase tracking-widest outline-none shadow-none"
                       placeholder="Ingresa tu Mail"
                       type="email"
                       required
@@ -89,7 +89,7 @@ export default function PreLaunchSection() {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                     <button
-                      className="absolute right-0 bottom-4 text-white hover:scale-110 transition-transform"
+                      className="absolute right-0 bottom-4 text-white hover:text-[#ffe16d] hover:scale-110 transition-all duration-200"
                       type="submit"
                     >
                       <span
@@ -112,21 +112,21 @@ export default function PreLaunchSection() {
                   <span className="font-headline-lg text-2xl md:text-3xl text-white font-bold">
                     {countdown.days}
                   </span>
-                  <span className="font-label-sm text-[10px] text-white/70 uppercase font-semibold">Días</span>
+                  <span className="font-label-sm text-[10px] text-[#ffe16d] uppercase font-semibold">Días</span>
                 </div>
                 <span className="font-headline-lg text-white/30">:</span>
                 <div className="flex flex-col items-center">
                   <span className="font-headline-lg text-2xl md:text-3xl text-white font-bold">
                     {String(countdown.hours).padStart(2, '0')}
                   </span>
-                  <span className="font-label-sm text-[10px] text-white/70 uppercase font-semibold">Hrs</span>
+                  <span className="font-label-sm text-[10px] text-[#ffe16d] uppercase font-semibold">Hrs</span>
                 </div>
                 <span className="font-headline-lg text-white/30">:</span>
                 <div className="flex flex-col items-center">
                   <span className="font-headline-lg text-2xl md:text-3xl text-white font-bold">
                     {String(countdown.mins).padStart(2, '0')}
                   </span>
-                  <span className="font-label-sm text-[10px] text-white/70 uppercase font-semibold">Min</span>
+                  <span className="font-label-sm text-[10px] text-[#ffe16d] uppercase font-semibold">Min</span>
                 </div>
               </div>
 
@@ -134,21 +134,21 @@ export default function PreLaunchSection() {
               <div className="flex flex-col items-center md:items-end gap-2">
                 <div className="flex gap-2">
                   {/* Tens Digit */}
-                  <div className="relative bg-[#18181b] border border-white/10 rounded-md w-14 h-20 md:w-18 md:h-26 flex items-center justify-center shadow-md overflow-hidden">
+                  <div className="relative bg-white border border-white/10 rounded-md w-14 h-20 md:w-18 md:h-26 flex items-center justify-center shadow-md overflow-hidden animate-none">
                     {/* Top Half Shade */}
-                    <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-white/10 z-20"></div>
+                    <div className="absolute top-0 left-0 w-full h-1/2 bg-black/[0.02] border-b border-black/[0.05] z-20"></div>
                     {/* Digit */}
-                    <span className="relative z-10 font-headline-xl text-5xl md:text-7xl text-white block leading-none font-bold select-none">
+                    <span className="relative z-10 font-headline-xl text-5xl md:text-7xl text-[#12121d] block leading-none font-bold select-none">
                       {String(countdown.secs).padStart(2, '0')[0]}
                     </span>
                   </div>
 
                   {/* Units Digit */}
-                  <div className="relative bg-[#18181b] border border-white/10 rounded-md w-14 h-20 md:w-18 md:h-26 flex items-center justify-center shadow-md overflow-hidden">
+                  <div className="relative bg-white border border-white/10 rounded-md w-14 h-20 md:w-18 md:h-26 flex items-center justify-center shadow-md overflow-hidden animate-none">
                     {/* Top Half Shade */}
-                    <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-white/10 z-20"></div>
+                    <div className="absolute top-0 left-0 w-full h-1/2 bg-black/[0.02] border-b border-black/[0.05] z-20"></div>
                     {/* Digit */}
-                    <span className="relative z-10 font-headline-xl text-5xl md:text-7xl text-white block leading-none font-bold select-none">
+                    <span className="relative z-10 font-headline-xl text-5xl md:text-7xl text-[#12121d] block leading-none font-bold select-none">
                       {String(countdown.secs).padStart(2, '0')[1]}
                     </span>
                   </div>
@@ -165,7 +165,7 @@ export default function PreLaunchSection() {
           </div>
 
           {/* Branding Slogan */}
-          <p className="font-display-serif text-display-serif text-center text-[#ffe16d] italic max-w-2xl px-4">
+          <p className="font-display-serif text-display-serif text-center text-[#12121d] italic max-w-2xl px-4">
             "Un gusto hecho ritual, elevado al infinito."
           </p>
         </div>
