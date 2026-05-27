@@ -91,13 +91,4 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 5;
   }
-
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
-  .animate-\[marquee_30s_linear_infinite\] {
-    animation: marquee 30s linear infinite;
-  }
 }

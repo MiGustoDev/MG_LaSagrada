@@ -1,13 +1,13 @@
 export default function Footer() {
   return (
     <footer className="relative w-full" style={{
-      background: 'linear-gradient(to bottom, #f5f0e8 0%, #c8dff0 18%, #a8cce4 40%, #7db3d8 65%, #5a9bc8 100%)'
+      background: 'linear-gradient(to bottom, #12121d 0%, #172a45 35%, #1d3f72 70%, #75AADB 100%)'
     }}>
       {/* Soft fade-in blur from the section above */}
       <div
         className="absolute top-0 left-0 w-full h-32 pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, #f5f0e8 0%, transparent 100%)'
+          background: 'linear-gradient(to bottom, #12121d 0%, transparent 100%)'
         }}
       />
 

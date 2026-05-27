@@ -1,5 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
 
+// Premium glowing golden star component representing the 3 World Cups (Mundial)
+function GoldenStar({ className }) {
+  return (
+    <svg 
+      className={className} 
+      viewBox="0 0 24 24" 
+      fill="#ffe16d" 
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ filter: 'drop-shadow(0 0 8px rgba(255, 225, 109, 0.95))' }}
+    >
+      <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 9.21l8.2-1.192L12 .587z" />
+    </svg>
+  );
+}
+
 export default function CountdownSection() {
   const [cloudLeftOffset, setCloudLeftOffset] = useState(-200);
   const [cloudRightOffset, setCloudRightOffset] = useState(200);
@@ -48,10 +63,16 @@ export default function CountdownSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-screen bg-[#f5f0e8] overflow-hidden flex items-center justify-center">
+    <section 
+      ref={sectionRef} 
+      className="relative h-screen overflow-hidden flex items-center justify-center"
+      style={{
+        background: 'linear-gradient(to bottom, #75AADB 0%, #4A90E2 30%, #1D3F72 60%, #12121d 100%)'
+      }}
+    >
       {/* Decorative Clouds with Images - Animated */}
       <div 
-        className="absolute left-0 top-20 opacity-60 hidden md:block pointer-events-none"
+        className="absolute left-0 top-20 opacity-75 hidden md:block pointer-events-none"
         style={{ transform: `translateX(${cloudLeftOffset}px)` }}
       >
         <img 
@@ -61,7 +82,7 @@ export default function CountdownSection() {
         />
       </div>
       <div 
-        className="absolute right-0 bottom-1/3 opacity-70 hidden md:block pointer-events-none"
+        className="absolute right-0 bottom-1/3 opacity-80 hidden md:block pointer-events-none"
         style={{ transform: `translateX(${-cloudRightOffset}px)` }}
       >
         <img 
@@ -72,7 +93,7 @@ export default function CountdownSection() {
       </div>
 
       {/* Additional dispersed clouds - Static */}
-      <div className="absolute left-[5%] top-[15%] opacity-50 hidden md:block pointer-events-none">
+      <div className="absolute left-[5%] top-[15%] opacity-65 hidden md:block pointer-events-none">
         <img 
           src="/nube.png" 
           alt="Nube decorativa 1" 
@@ -80,7 +101,7 @@ export default function CountdownSection() {
         />
       </div>
 
-      <div className="absolute right-[8%] top-[20%] opacity-45 hidden md:block pointer-events-none">
+      <div className="absolute right-[8%] top-[20%] opacity-60 hidden md:block pointer-events-none">
         <img 
           src="/nube.png" 
           alt="Nube decorativa 2" 
@@ -88,7 +109,7 @@ export default function CountdownSection() {
         />
       </div>
 
-      <div className="absolute left-[12%] bottom-[20%] opacity-55 hidden md:block pointer-events-none">
+      <div className="absolute left-[12%] bottom-[20%] opacity-70 hidden md:block pointer-events-none">
         <img 
           src="/nube.png" 
           alt="Nube decorativa 3" 
@@ -96,7 +117,7 @@ export default function CountdownSection() {
         />
       </div>
 
-      <div className="absolute right-[15%] bottom-[25%] opacity-40 hidden md:block pointer-events-none">
+      <div className="absolute right-[15%] bottom-[25%] opacity-55 hidden md:block pointer-events-none">
         <img 
           src="/nube.png" 
           alt="Nube decorativa 4" 
@@ -104,7 +125,7 @@ export default function CountdownSection() {
         />
       </div>
 
-      <div className="absolute left-[70%] top-[30%] opacity-45 hidden md:block pointer-events-none">
+      <div className="absolute left-[70%] top-[30%] opacity-60 hidden md:block pointer-events-none">
         <img 
           src="/nube.png" 
           alt="Nube decorativa 5" 
@@ -113,12 +134,19 @@ export default function CountdownSection() {
       </div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center px-margin-mobile">
-        <div className="relative mb-16" style={{ transform: `translateY(${sunOffset}px)` }}>
-          <div className="sun-glow">
+        <div className="relative mb-16 flex flex-col items-center" style={{ transform: `translateY(${sunOffset}px)` }}>
+          {/* Three World Cup Stars (Triangular formation) */}
+          <div className="flex justify-center items-end gap-1.5 md:gap-3 mb-2 opacity-95 drop-shadow-[0_0_12px_rgba(255,225,109,0.6)]">
+            <GoldenStar className="h-6 w-6 md:h-8 md:w-8 animate-[bounce_3s_infinite_100ms] -rotate-12" />
+            <GoldenStar className="h-8 w-8 md:h-10 md:w-10 animate-[bounce_3s_infinite_500ms] translate-y-[-4px]" />
+            <GoldenStar className="h-6 w-6 md:h-8 md:w-8 animate-[bounce_3s_infinite_300ms] rotate-12" />
+          </div>
+
+          <div className="sun-glow opacity-60 md:opacity-85">
             <img 
               src="/sol.png" 
               alt="Sol" 
-              className="h-56 w-56 object-contain drop-shadow-2xl"
+              className="h-44 w-44 md:h-56 md:w-56 object-contain drop-shadow-2xl animate-[spin_120s_linear_infinite]"
             />
           </div>
         </div>
