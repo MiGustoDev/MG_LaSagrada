@@ -76,7 +76,7 @@ export default function CountdownSection() {
         style={{ transform: `translateX(${cloudLeftOffset}px)` }}
       >
         <img 
-          src="/nube.png" 
+          src={`${import.meta.env.BASE_URL}nube.png`} 
           alt="Nube izquierda" 
           className="h-32 object-contain"
         />
@@ -86,7 +86,7 @@ export default function CountdownSection() {
         style={{ transform: `translateX(${-cloudRightOffset}px)` }}
       >
         <img 
-          src="/nube.png" 
+          src={`${import.meta.env.BASE_URL}nube.png`} 
           alt="Nube derecha" 
           className="h-40 object-contain"
         />
@@ -95,7 +95,7 @@ export default function CountdownSection() {
       {/* Additional dispersed clouds - Static */}
       <div className="absolute left-[5%] top-[15%] opacity-65 hidden md:block pointer-events-none">
         <img 
-          src="/nube.png" 
+          src={`${import.meta.env.BASE_URL}nube.png`} 
           alt="Nube decorativa 1" 
           className="h-20 object-contain"
         />
@@ -103,7 +103,7 @@ export default function CountdownSection() {
 
       <div className="absolute right-[8%] top-[20%] opacity-60 hidden md:block pointer-events-none">
         <img 
-          src="/nube.png" 
+          src={`${import.meta.env.BASE_URL}nube.png`} 
           alt="Nube decorativa 2" 
           className="h-24 object-contain"
         />
@@ -111,7 +111,7 @@ export default function CountdownSection() {
 
       <div className="absolute left-[12%] bottom-[20%] opacity-70 hidden md:block pointer-events-none">
         <img 
-          src="/nube.png" 
+          src={`${import.meta.env.BASE_URL}nube.png`} 
           alt="Nube decorativa 3" 
           className="h-28 object-contain"
         />
@@ -119,7 +119,7 @@ export default function CountdownSection() {
 
       <div className="absolute right-[15%] bottom-[25%] opacity-55 hidden md:block pointer-events-none">
         <img 
-          src="/nube.png" 
+          src={`${import.meta.env.BASE_URL}nube.png`} 
           alt="Nube decorativa 4" 
           className="h-20 object-contain"
         />
@@ -127,7 +127,7 @@ export default function CountdownSection() {
 
       <div className="absolute left-[70%] top-[30%] opacity-60 hidden md:block pointer-events-none">
         <img 
-          src="/nube.png" 
+          src={`${import.meta.env.BASE_URL}nube.png`} 
           alt="Nube decorativa 5" 
           className="h-24 object-contain"
         />
@@ -144,7 +144,7 @@ export default function CountdownSection() {
 
           <div className="sun-glow opacity-60 md:opacity-85">
             <img 
-              src="/sol.png" 
+              src={`${import.meta.env.BASE_URL}sol.png`} 
               alt="Sol" 
               className="h-44 w-44 md:h-56 md:w-56 object-contain drop-shadow-2xl animate-[spin_120s_linear_infinite]"
             />

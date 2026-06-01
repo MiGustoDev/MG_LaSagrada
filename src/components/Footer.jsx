@@ -18,7 +18,7 @@ export default function Footer() {
           {/* LEFT — Logo */}
           <div className="flex items-center justify-center md:justify-start md:w-1/4">
             <img
-              src="/Logo Mi Gusto 2025.png"
+              src={`${import.meta.env.BASE_URL}Logo Mi Gusto 2025.png`}
               alt="Mi Gusto Logo"
               className="h-16 md:h-20 w-auto object-contain drop-shadow-md"
             />

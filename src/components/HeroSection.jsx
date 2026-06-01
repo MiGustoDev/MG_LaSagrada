@@ -21,12 +21,12 @@ export default function HeroSection() {
           loop
           muted
           playsInline
-          src="/Main-video.mp4"
+          src={`${import.meta.env.BASE_URL}Main-video.mp4`}
         />
       </div>
       <div className="relative z-10 text-center flex flex-col items-center gap-6 md:gap-8 max-w-lg px-4">
         <img 
-          src="/Logo Mi Gusto 2025.png" 
+          src={`${import.meta.env.BASE_URL}Logo Mi Gusto 2025.png`} 
           alt="Mi Gusto Logo" 
           className="h-32 sm:h-48 md:h-60 w-auto object-contain drop-shadow-3xl mb-4"
         />

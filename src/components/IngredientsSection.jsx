@@ -108,7 +108,7 @@ export default function IngredientsSection() {
             className={`absolute ${cloud.opacity} hidden md:block pointer-events-none z-0 transition-transform duration-100 ease-out`}
             style={style}
           >
-            <img src="/nube.png" alt="Nube" className={`${cloud.size} object-contain`} />
+            <img src={`${import.meta.env.BASE_URL}nube.png`} alt="Nube" className={`${cloud.size} object-contain`} />
           </div>
         );
       })}
@@ -130,7 +130,7 @@ export default function IngredientsSection() {
 
           <div className="sun-glow opacity-60 md:opacity-85">
             <img 
-              src="/sol.png" 
+              src={`${import.meta.env.BASE_URL}sol.png`} 
               alt="Sol" 
               className="h-28 w-28 md:h-36 md:w-36 object-contain animate-[spin_100s_linear_infinite]"
             />
@@ -242,7 +242,7 @@ export default function IngredientsSection() {
             <img
               className="max-h-[35vh] md:max-h-[42vh] w-auto object-contain transition-all duration-300 hover:scale-[1.02]"
               alt="Ingredientes de La Sagrada"
-              src="/Ingredientes.png"
+              src={`${import.meta.env.BASE_URL}Ingredientes.png`}
             />
           </div>
 

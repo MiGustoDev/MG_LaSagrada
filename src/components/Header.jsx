@@ -19,7 +19,7 @@ export default function Header() {
       <div className="bg-surface-container-lowest/60 backdrop-blur-md border-b border-outline-variant/20">
         <div className="flex justify-center items-center w-full px-margin-mobile py-2 max-w-container-max mx-auto">
           <img 
-            src="/Logo Mi Gusto 2025.png" 
+            src={`${import.meta.env.BASE_URL}Logo Mi Gusto 2025.png`} 
             alt="Mi Gusto Logo" 
             className="h-8 object-contain"
           />

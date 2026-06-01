@@ -91,4 +91,214 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 5;
   }
+
+  .coming-soon-screen {
+    height: 100dvh;
+    height: 100svh;
+    overflow: hidden;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  @media (max-height: 640px) {
+    .coming-soon-screen {
+      overflow-y: auto;
+    }
+  }
+
+  .coming-soon-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .coming-soon-logo-wrap {
+    flex-shrink: 0;
+    padding-top: clamp(0.35rem, 1.5vh, 0.75rem);
+    padding-bottom: clamp(0.25rem, 1vh, 0.5rem);
+  }
+
+  @media (min-width: 768px) {
+    .coming-soon-logo-wrap {
+      padding-top: 1.7rem;
+      padding-bottom: 0;
+    }
+  }
+
+  .coming-soon-logo {
+    height: clamp(3.25rem, 14vh, 4.75rem);
+    width: auto;
+  }
+
+  @media (min-width: 640px) and (max-width: 767px) {
+    .coming-soon-logo {
+      height: clamp(3.5rem, 12vh, 4.25rem);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .coming-soon-logo {
+      height: 5.4rem;
+    }
+  }
+
+  .coming-soon-main {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-inline: clamp(1rem, 4vw, 1.5rem);
+    gap: clamp(0.5rem, 2vh, 1.25rem);
+    padding-top: 0;
+    padding-bottom: 0;
+    transform: none;
+  }
+
+  .coming-soon-zone {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .coming-soon-quote {
+    flex-shrink: 0;
+    padding-top: clamp(0.25rem, 1vh, 0.75rem);
+    padding-bottom: clamp(0.35rem, 1.5vh, 0.75rem);
+  }
+
+  @media (min-width: 768px) {
+    .coming-soon-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: center;
+      column-gap: clamp(2rem, 4vw, 4rem);
+      padding-inline: clamp(2.5rem, 8vw, 6rem);
+      padding-top: 0.5rem;
+      padding-bottom: 0.25rem;
+      transform: none;
+      min-height: 0;
+    }
+
+    .coming-soon-zone {
+      flex: initial;
+      min-height: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .coming-soon-zone--form {
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: start;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .coming-soon-zone--countdown {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: end;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .coming-soon-quote {
+      padding-top: 0.5rem;
+      padding-bottom: 2rem;
+      font-size: 42px;
+      line-height: 48px;
+    }
+
+    .coming-soon-watermark {
+      font-size: clamp(3rem, 5vw, 4.25rem);
+      line-height: 0.92;
+      max-width: 100%;
+    }
+
+    .coming-soon-unit-num {
+      font-size: clamp(3rem, 5vw, 3.75rem);
+      line-height: 1;
+    }
+
+    .coming-soon-unit-label {
+      font-size: 0.875rem;
+    }
+
+    .coming-soon-colon {
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      padding-bottom: 0.45em;
+      line-height: 1;
+    }
+
+    .coming-soon-flip-num {
+      font-size: clamp(3.25rem, 5.5vw, 4.5rem);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .coming-soon-main {
+      padding-inline: clamp(3.5rem, 9vw, 7rem);
+    }
+
+    .coming-soon-watermark {
+      font-size: clamp(3.5rem, 4.5vw, 5rem);
+    }
+
+    .coming-soon-unit-num {
+      font-size: clamp(3.5rem, 4vw, 4.25rem);
+    }
+
+    .coming-soon-unit-label {
+      font-size: 0.9375rem;
+    }
+
+    .coming-soon-colon {
+      font-size: clamp(2.5rem, 3vw, 3.25rem);
+    }
+
+    .coming-soon-flip-num {
+      font-size: clamp(4rem, 4.5vw, 5rem);
+    }
+  }
+
+  /* Móvil: tamaños proporcionales al alto de pantalla */
+  @media (max-width: 767px) {
+    .coming-soon-unit-num {
+      font-size: clamp(2.35rem, 8.5vh, 3.35rem);
+      line-height: 1;
+    }
+
+    .coming-soon-colon {
+      font-size: clamp(1.35rem, 5vh, 1.85rem);
+    }
+
+    .coming-soon-unit-label {
+      font-size: clamp(0.625rem, 1.8vh, 0.75rem);
+      letter-spacing: 0.08em;
+    }
+
+    .coming-soon-flip-num {
+      font-size: clamp(2.35rem, 8vh, 3.25rem);
+    }
+
+    .coming-soon-watermark {
+      font-size: clamp(2.75rem, 11vh, 4.25rem);
+    }
+
+    .coming-soon-cta-text {
+      font-size: clamp(0.75rem, 2.2vh, 0.875rem);
+    }
+
+    .coming-soon-quote {
+      font-size: clamp(1rem, 3.2vh, 1.35rem);
+      line-height: 1.35;
+    }
+  }
 }

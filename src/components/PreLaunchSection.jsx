@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import { subscribeToWaitlist } from '../services/waitlist';
 
 export default function PreLaunchSection() {
   const [countdown, setCountdown] = useState({ days: 57, hours: 11, mins: 52, secs: 10 });
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState('');
   const [scrollOffset, setScrollOffset] = useState(0);
 
   // Countdown timer
@@ -47,13 +50,25 @@ export default function PreLaunchSection() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      setEmail('');
-      setTimeout(() => setSubmitted(false), 3000);
+    if (!email || isSubmitting) return;
+
+    setFormError('');
+    setIsSubmitting(true);
+
+    const result = await subscribeToWaitlist(email);
+
+    setIsSubmitting(false);
+
+    if (!result.ok) {
+      setFormError(result.message);
+      return;
     }
+
+    setSubmitted(true);
+    setEmail('');
+    setTimeout(() => setSubmitted(false), 4000);
   };
 
   return (
@@ -77,20 +92,25 @@ export default function PreLaunchSection() {
               ) : (
                 <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
                   <p className="font-body-md text-white/90 text-sm uppercase tracking-wider font-semibold">
-                    Únete al ritual. <span className="text-[#ffe16d]">Recibe el aviso.</span>
+                    Unite al ritual. <span className="text-[#ffe16d]">Recibí el aviso.</span>
                   </p>
                   <div className="relative group">
                     <input
-                      className="w-full bg-transparent border-0 border-b-2 border-white/20 py-4 px-0 font-headline-lg text-lg focus:outline-none focus:ring-0 focus:border-b-2 focus:border-[#ffe16d] transition-all placeholder:text-white/30 text-white uppercase tracking-widest outline-none shadow-none"
+                      className="w-full bg-transparent border-0 border-b-2 border-white/20 py-4 px-0 font-headline-lg text-lg focus:outline-none focus:ring-0 focus:border-b-2 focus:border-[#ffe16d] transition-all placeholder:text-white/30 text-white uppercase tracking-widest outline-none shadow-none disabled:opacity-50"
                       placeholder="Ingresa tu Mail"
                       type="email"
                       required
+                      disabled={isSubmitting}
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (formError) setFormError('');
+                      }}
                     />
                     <button
-                      className="absolute right-0 bottom-4 text-white hover:text-[#ffe16d] hover:scale-110 transition-all duration-200"
+                      className="absolute right-0 bottom-4 text-white hover:text-[#ffe16d] hover:scale-110 transition-all duration-200 disabled:opacity-40"
                       type="submit"
+                      disabled={isSubmitting}
                     >
                       <span
                         className="material-symbols-outlined"
@@ -100,6 +120,11 @@ export default function PreLaunchSection() {
                       </span>
                     </button>
                   </div>
+                  {formError && (
+                    <p className="text-red-300 text-sm" role="alert">
+                      {formError}
+                    </p>
+                  )}
                 </form>
               )}
             </div>
@@ -154,7 +179,7 @@ export default function PreLaunchSection() {
                   </div>
                 </div>
                 <span className="font-label-sm text-xs tracking-[0.4em] text-white/50 mr-2 font-semibold">
-                  SECONDS
+                  Segundos
                 </span>
               </div>
             </div>
@@ -166,7 +191,7 @@ export default function PreLaunchSection() {
 
           {/* Branding Slogan */}
           <p className="font-display-serif text-display-serif text-center text-[#12121d] italic max-w-2xl px-4">
-            "Un gusto hecho ritual, elevado al infinito."
+            "Un gusto hecho ritual"
           </p>
         </div>
       </main>
