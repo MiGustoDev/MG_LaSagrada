@@ -196,16 +196,16 @@
     .coming-soon-zone--form {
       grid-column: 1;
       grid-row: 1;
-      justify-self: start;
-      align-items: flex-start;
+      justify-self: end;
+      align-items: flex-end;
       justify-content: center;
     }
 
     .coming-soon-zone--countdown {
       grid-column: 2;
       grid-row: 1;
-      justify-self: end;
-      align-items: flex-end;
+      justify-self: start;
+      align-items: center;
       justify-content: center;
     }
 
@@ -217,28 +217,32 @@
     }
 
     .coming-soon-watermark {
-      font-size: clamp(3rem, 5vw, 4.25rem);
+      font-size: clamp(4.5rem, 6vw, 5.8rem);
       line-height: 0.92;
       max-width: 100%;
     }
 
+    .coming-soon-cta-text {
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    }
+
     .coming-soon-unit-num {
-      font-size: clamp(3rem, 5vw, 3.75rem);
+      font-size: clamp(2.2rem, 3vw, 3rem);
       line-height: 1;
     }
 
     .coming-soon-unit-label {
-      font-size: 0.875rem;
+      font-size: clamp(0.75rem, 1vw, 0.95rem);
     }
 
     .coming-soon-colon {
-      font-size: clamp(2rem, 3.5vw, 2.75rem);
-      padding-bottom: 0.45em;
+      font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+      padding-bottom: 0.4em;
       line-height: 1;
     }
 
     .coming-soon-flip-num {
-      font-size: clamp(3.25rem, 5.5vw, 4.5rem);
+      font-size: clamp(5rem, 7vw, 6.5rem);
     }
   }
 
@@ -248,23 +252,27 @@
     }
 
     .coming-soon-watermark {
-      font-size: clamp(3.5rem, 4.5vw, 5rem);
+      font-size: clamp(5.5rem, 7.5vw, 7.5rem);
+    }
+
+    .coming-soon-cta-text {
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
     }
 
     .coming-soon-unit-num {
-      font-size: clamp(3.5rem, 4vw, 4.25rem);
+      font-size: clamp(2.8rem, 3.8vw, 4rem);
     }
 
     .coming-soon-unit-label {
-      font-size: 0.9375rem;
+      font-size: clamp(0.85rem, 1.1vw, 1.1rem);
     }
 
     .coming-soon-colon {
-      font-size: clamp(2.5rem, 3vw, 3.25rem);
+      font-size: clamp(2rem, 2.8vw, 2.8rem);
     }
 
     .coming-soon-flip-num {
-      font-size: clamp(4rem, 4.5vw, 5rem);
+      font-size: clamp(6rem, 8.5vw, 8rem);
     }
   }
 

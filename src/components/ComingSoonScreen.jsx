@@ -10,7 +10,7 @@ const VIDEO_OPACITY = 0.65;
 
 function FlipDigit({ digit }) {
   return (
-    <div className="coming-soon-flip relative bg-white border border-white/10 rounded-md w-14 h-[4.25rem] sm:w-16 sm:h-24 md:w-[7rem] md:h-[9rem] lg:w-[7.75rem] lg:h-[9.75rem] flex items-center justify-center shadow-lg overflow-hidden shrink-0">
+    <div className="coming-soon-flip relative bg-white border border-white/10 rounded-md w-14 h-[4.25rem] sm:w-16 sm:h-24 md:w-[9.5rem] md:h-[12rem] lg:w-[11rem] lg:h-[13.5rem] flex items-center justify-center shadow-lg overflow-hidden shrink-0">
       <div className="absolute top-0 left-0 w-full h-1/2 bg-black/[0.02] border-b border-black/[0.05] z-20" />
       <div className="absolute top-1/2 left-0 w-full h-px bg-black/20 z-30" />
       <span className="coming-soon-flip-num relative z-10 font-headline-xl text-[#12121d] leading-none font-bold select-none">
@@ -113,8 +113,8 @@ export default function ComingSoonScreen() {
 
         <div className="coming-soon-main">
           <div className="coming-soon-zone coming-soon-zone--countdown order-1 md:order-none">
-            <div className="flex flex-col items-center md:items-end gap-[clamp(0.75rem,3vh,1.75rem)] md:gap-5 w-full">
-              <div className="flex gap-[clamp(0.5rem,2vw,1.5rem)] md:gap-6 lg:gap-8 items-end justify-center md:justify-end">
+            <div className="flex flex-col items-center gap-[clamp(0.75rem,3vh,1.75rem)] md:gap-4 w-full">
+              <div className="flex gap-[clamp(0.5rem,1.5vw,1rem)] md:gap-3 lg:gap-4 items-end justify-center">
                 <div className="flex flex-col items-center">
                   <span className="coming-soon-unit-num font-headline-lg text-white font-bold drop-shadow-lg tabular-nums">
                     {countdown.days}
@@ -143,12 +143,12 @@ export default function ComingSoonScreen() {
                 </div>
               </div>
 
-              <div className="flex flex-col items-center md:items-end gap-[clamp(0.35rem,1.5vh,0.75rem)] md:gap-2">
-                <div className="flex gap-2 sm:gap-3">
+              <div className="flex flex-col items-center gap-[clamp(0.35rem,1.5vh,0.75rem)] md:gap-3">
+                <div className="flex gap-3 sm:gap-4 md:gap-4 lg:gap-5">
                   <FlipDigit digit={secs[0]} />
                   <FlipDigit digit={secs[1]} />
                 </div>
-                <span className="font-label-sm text-[10px] xs:text-xs tracking-[0.35em] sm:tracking-[0.4em] text-white/60 font-semibold uppercase">
+                <span className="w-full text-center font-label-sm text-[10px] xs:text-xs md:text-sm tracking-[0.35em] sm:tracking-[0.5em] md:tracking-[0.7em] lg:tracking-[0.95em] pl-[0.35em] sm:pl-[0.5em] md:pl-[0.7em] lg:pl-[0.95em] text-white/60 font-semibold uppercase">
                   Segundos
                 </span>
               </div>
@@ -156,10 +156,10 @@ export default function ComingSoonScreen() {
           </div>
 
           <div className="coming-soon-zone coming-soon-zone--form order-2 md:order-none">
-            <div className="flex flex-col gap-[clamp(0.65rem,2.5vh,1.5rem)] md:gap-6 w-full max-w-sm md:max-w-[22rem]">
+            <div className="flex flex-col gap-[clamp(0.65rem,2.5vh,1.8rem)] md:gap-8 w-full max-w-sm md:max-w-[38rem]">
               <div
-                className="coming-soon-watermark font-headline-xl tracking-widest uppercase text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] text-center md:text-left leading-[0.92]"
-                style={{ opacity: 0.4 }}
+                className="coming-soon-watermark font-headline-xl tracking-widest uppercase text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] text-center md:text-right leading-[0.92]"
+                style={{ opacity: 0.72 }}
               >
                 COMING
                 <br />
@@ -172,13 +172,13 @@ export default function ComingSoonScreen() {
                 </p>
               ) : (
                 <form className="flex flex-col gap-[clamp(0.5rem,2vh,1rem)] md:gap-4 w-full" onSubmit={handleFormSubmit}>
-                  <p className="font-body-md text-white uppercase tracking-wider font-semibold drop-shadow-md text-center md:text-left leading-snug coming-soon-cta-text md:text-sm">
+                  <p className="font-body-md text-white uppercase tracking-wider font-semibold drop-shadow-md text-center md:text-right leading-snug coming-soon-cta-text">
                     Unite al ritual.{' '}
                     <span className="text-[#ffe16d]">Recibí el aviso.</span>
                   </p>
                   <div className="relative group w-full">
                     <input
-                      className="w-full bg-transparent border-0 border-b-2 border-white/40 py-[clamp(0.65rem,2vh,1rem)] md:py-4 pr-11 font-headline-lg text-base md:text-lg focus:outline-none focus:border-[#ffe16d] transition-all placeholder:text-white/40 text-white uppercase tracking-wide md:tracking-widest drop-shadow-sm disabled:opacity-50 touch-manipulation"
+                      className="w-full bg-transparent border-0 border-b-2 border-white/40 py-[clamp(0.65rem,2vh,1rem)] md:py-6 pr-14 font-headline-lg text-base md:text-xl lg:text-2xl focus:outline-none focus:border-[#ffe16d] transition-all placeholder:text-white/40 text-white uppercase tracking-wide md:tracking-widest drop-shadow-sm disabled:opacity-50 touch-manipulation"
                       placeholder="Ingresa tu Mail"
                       type="email"
                       inputMode="email"
@@ -192,13 +192,13 @@ export default function ComingSoonScreen() {
                       }}
                     />
                     <button
-                      className="absolute right-0 bottom-[clamp(0.5rem,1.5vh,1rem)] md:bottom-4 text-white hover:text-[#ffe16d] active:scale-95 transition-all duration-200 disabled:opacity-40 p-2 -mr-2 touch-manipulation"
+                      className="absolute right-0 bottom-[clamp(0.5rem,1.5vh,1rem)] md:bottom-6 text-white hover:text-[#ffe16d] active:scale-95 transition-all duration-200 disabled:opacity-40 p-2 -mr-2 touch-manipulation"
                       type="submit"
                       disabled={isSubmitting}
                       aria-label="Enviar email"
                     >
                       <span
-                        className="material-symbols-outlined drop-shadow-md text-[clamp(1.5rem,5vw,1.75rem)]"
+                        className="material-symbols-outlined drop-shadow-md text-[clamp(1.5rem,4vw,2.25rem)]"
                         style={{ fontVariationSettings: "'FILL' 1" }}
                       >
                         arrow_forward
@@ -206,7 +206,7 @@ export default function ComingSoonScreen() {
                     </button>
                   </div>
                   {formError && (
-                    <p className="text-red-300 text-xs sm:text-sm drop-shadow-md text-center md:text-left" role="alert">
+                    <p className="text-red-300 text-xs sm:text-sm drop-shadow-md text-center md:text-right" role="alert">
                       {formError}
                     </p>
                   )}
