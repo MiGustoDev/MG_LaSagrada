@@ -92,6 +92,44 @@
     z-index: 5;
   }
 
+  /* ── Flip digit animation (triggered by key change on seconds) ── */
+  @keyframes coming-soon-digit-flip {
+    0% {
+      opacity: 0;
+      transform: rotateX(-90deg) translateY(-25%);
+    }
+    55% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      transform: rotateX(0deg) translateY(0%);
+    }
+  }
+
+  .coming-soon-digit-anim {
+    display: block;
+    animation: coming-soon-digit-flip 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+    transform-origin: center top;
+  }
+
+  /* ── Page entrance animation (staggered fade + slide-up) ── */
+  @keyframes coming-soon-entrance {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .entrance-anim {
+    opacity: 0;
+    animation: coming-soon-entrance 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
   .coming-soon-screen {
     height: 100dvh;
     height: 100svh;

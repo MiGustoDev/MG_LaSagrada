@@ -10,10 +10,16 @@ const VIDEO_OPACITY = 0.65;
 
 function FlipDigit({ digit }) {
   return (
-    <div className="coming-soon-flip relative bg-white border border-white/10 rounded-md w-14 h-[4.25rem] sm:w-16 sm:h-24 md:w-[9.5rem] md:h-[12rem] lg:w-[11rem] lg:h-[13.5rem] flex items-center justify-center shadow-lg overflow-hidden shrink-0">
+    <div
+      className="coming-soon-flip relative bg-white border border-white/10 rounded-md w-14 h-[4.25rem] sm:w-16 sm:h-24 md:w-[9.5rem] md:h-[12rem] lg:w-[11rem] lg:h-[13.5rem] flex items-center justify-center shadow-lg overflow-hidden shrink-0"
+      style={{ perspective: '600px' }}
+    >
       <div className="absolute top-0 left-0 w-full h-1/2 bg-black/[0.02] border-b border-black/[0.05] z-20" />
       <div className="absolute top-1/2 left-0 w-full h-px bg-black/20 z-30" />
-      <span className="coming-soon-flip-num relative z-10 font-headline-xl text-[#12121d] leading-none font-bold select-none">
+      <span
+        key={digit}
+        className="coming-soon-flip-num coming-soon-digit-anim relative z-10 font-headline-xl text-[#12121d] leading-none font-bold select-none"
+      >
         {digit}
       </span>
     </div>
@@ -103,7 +109,7 @@ export default function ComingSoonScreen() {
       </div>
 
       <div className="coming-soon-inner relative z-10 w-full">
-        <div className="coming-soon-logo-wrap flex justify-center px-4">
+        <div className="coming-soon-logo-wrap entrance-anim flex justify-center px-4">
           <img
             src={`${import.meta.env.BASE_URL}Logo Mi Gusto 2025.png`}
             alt="Mi Gusto Logo"
@@ -113,7 +119,7 @@ export default function ComingSoonScreen() {
 
         <div className="coming-soon-main">
           <div className="coming-soon-zone coming-soon-zone--countdown order-1 md:order-none">
-            <div className="flex flex-col items-center gap-[clamp(0.75rem,3vh,1.75rem)] md:gap-4 w-full">
+            <div className="entrance-anim flex flex-col items-center gap-[clamp(0.75rem,3vh,1.75rem)] md:gap-4 w-full" style={{ animationDelay: '0.3s' }}>
               <div className="flex gap-[clamp(0.5rem,1.5vw,1rem)] md:gap-3 lg:gap-4 items-end justify-center">
                 <div className="flex flex-col items-center">
                   <span className="coming-soon-unit-num font-headline-lg text-white font-bold drop-shadow-lg tabular-nums">
@@ -156,9 +162,9 @@ export default function ComingSoonScreen() {
           </div>
 
           <div className="coming-soon-zone coming-soon-zone--form order-2 md:order-none">
-            <div className="flex flex-col gap-[clamp(0.65rem,2.5vh,1.8rem)] md:gap-8 w-full max-w-sm md:max-w-[38rem]">
+            <div className="entrance-anim flex flex-col gap-[clamp(0.65rem,2.5vh,1.8rem)] md:gap-8 w-full max-w-sm md:max-w-[38rem]" style={{ animationDelay: '0.15s' }}>
               <div
-                className="coming-soon-watermark font-headline-xl tracking-widest uppercase text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] text-center md:text-right leading-[0.92]"
+                className="coming-soon-watermark font-headline-xl tracking-widest uppercase text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] text-center md:text-left leading-[0.92]"
                 style={{ opacity: 0.72 }}
               >
                 COMING
@@ -172,8 +178,8 @@ export default function ComingSoonScreen() {
                 </p>
               ) : (
                 <form className="flex flex-col gap-[clamp(0.5rem,2vh,1rem)] md:gap-4 w-full" onSubmit={handleFormSubmit}>
-                  <p className="font-body-md text-white uppercase tracking-wider font-semibold drop-shadow-md text-center md:text-right leading-snug coming-soon-cta-text">
-                    Unite al ritual.{' '}
+                  <p className="font-body-md text-white uppercase tracking-wider font-semibold drop-shadow-md text-center md:text-left leading-snug coming-soon-cta-text">
+                    Uníte al ritual y{' '}
                     <span className="text-[#ffe16d]">Recibí el aviso.</span>
                   </p>
                   <div className="relative group w-full">
@@ -217,8 +223,8 @@ export default function ComingSoonScreen() {
         </div>
 
         <p
-          className="coming-soon-quote text-center font-display-serif text-white/90 italic px-5 leading-snug drop-shadow-md max-w-md mx-auto md:max-w-2xl"
-          style={{ opacity: 0.9 }}
+          className="entrance-anim coming-soon-quote text-center font-display-serif text-white/90 italic px-5 leading-snug drop-shadow-md max-w-md mx-auto md:max-w-2xl"
+          style={{ animationDelay: '0.5s' }}
         >
           &ldquo;Un gusto hecho ritual&rdquo;
         </p>
