@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { getCountdownParts } from '../constants/launch';
 
 // Premium glowing golden star component representing the 3 World Cups (Mundial)
 function GoldenStar({ className }) {
@@ -26,7 +27,7 @@ const cloudsData = [
 export default function IngredientsSection() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [sunOffset, setSunOffset] = useState(200);
-  const [countdown, setCountdown] = useState({ days: 4, hours: 12, mins: 35, secs: 48 });
+  const [countdown, setCountdown] = useState(getCountdownParts);
   const sectionRef = useRef(null);
 
   // Parallax scroll effects for clouds and sun
@@ -57,32 +58,11 @@ export default function IngredientsSection() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Countdown timer logic
+  // Cuenta regresiva hasta el 11/06/2026 (medianoche Argentina)
   useEffect(() => {
-    const target = new Date();
-    target.setDate(target.getDate() + 4);
-    target.setHours(target.getHours() + 12);
-    target.setMinutes(target.getMinutes() + 35);
-    target.setSeconds(target.getSeconds() + 48);
-
-    const interval = setInterval(() => {
-      const current = new Date();
-      const diff = target - current;
-
-      if (diff <= 0) {
-        setCountdown({ days: 0, hours: 0, mins: 0, secs: 0 });
-        clearInterval(interval);
-        return;
-      }
-
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-      setCountdown({ days: d, hours: h, mins: m, secs: s });
-    }, 1000);
-
+    const tick = () => setCountdown(getCountdownParts());
+    tick();
+    const interval = setInterval(tick, 1000);
     return () => clearInterval(interval);
   }, []);
 

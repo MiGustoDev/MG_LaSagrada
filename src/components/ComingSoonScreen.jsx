@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { subscribeToWaitlist } from '../services/waitlist';
-
-// Fecha fija de lanzamiento: 11 de Junio de 2026 a medianoche (hora local Argentina, UTC-3)
-const LAUNCH_DATE = new Date('2026-06-11T00:00:00-03:00');
+import { getCountdownParts } from '../constants/launch';
 
 const VIDEO_OPACITY = 0.65;
 
@@ -26,16 +24,7 @@ function FlipDigit({ digit }) {
 
 export default function ComingSoonScreen() {
   const [parallaxOffset, setParallaxOffset] = useState(0);
-  const [countdown, setCountdown] = useState(() => {
-    const diff = LAUNCH_DATE - new Date();
-    if (diff <= 0) return { days: 0, hours: 0, mins: 0, secs: 0 };
-    return {
-      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      mins: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-      secs: Math.floor((diff % (1000 * 60)) / 1000),
-    };
-  });
+  const [countdown, setCountdown] = useState(getCountdownParts);
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,19 +43,7 @@ export default function ComingSoonScreen() {
   }, []);
 
   useEffect(() => {
-    const tick = () => {
-      const diff = LAUNCH_DATE - new Date();
-      if (diff <= 0) {
-        setCountdown({ days: 0, hours: 0, mins: 0, secs: 0 });
-        return;
-      }
-      setCountdown({
-        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        mins: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-        secs: Math.floor((diff % (1000 * 60)) / 1000),
-      });
-    };
+    const tick = () => setCountdown(getCountdownParts());
 
     const interval = setInterval(tick, 1000);
     return () => clearInterval(interval);
