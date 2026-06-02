@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { subscribeToWaitlist } from '../services/waitlist';
 
-const LAUNCH_OFFSET_MS =
-  57 * 24 * 60 * 60 * 1000 +
-  11 * 60 * 60 * 1000 +
-  32 * 60 * 1000;
+// Fecha fija de lanzamiento: 11 de Junio de 2026 a medianoche (hora local Argentina, UTC-3)
+const LAUNCH_DATE = new Date('2026-06-11T00:00:00-03:00');
 
 const VIDEO_OPACITY = 0.65;
 
@@ -28,7 +26,16 @@ function FlipDigit({ digit }) {
 
 export default function ComingSoonScreen() {
   const [parallaxOffset, setParallaxOffset] = useState(0);
-  const [countdown, setCountdown] = useState({ days: 57, hours: 11, mins: 32, secs: 25 });
+  const [countdown, setCountdown] = useState(() => {
+    const diff = LAUNCH_DATE - new Date();
+    if (diff <= 0) return { days: 0, hours: 0, mins: 0, secs: 0 };
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      mins: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+      secs: Math.floor((diff % (1000 * 60)) / 1000),
+    };
+  });
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,10 +54,8 @@ export default function ComingSoonScreen() {
   }, []);
 
   useEffect(() => {
-    const target = new Date(Date.now() + LAUNCH_OFFSET_MS);
-
     const tick = () => {
-      const diff = target - new Date();
+      const diff = LAUNCH_DATE - new Date();
       if (diff <= 0) {
         setCountdown({ days: 0, hours: 0, mins: 0, secs: 0 });
         return;
@@ -63,7 +68,6 @@ export default function ComingSoonScreen() {
       });
     };
 
-    tick();
     const interval = setInterval(tick, 1000);
     return () => clearInterval(interval);
   }, []);
