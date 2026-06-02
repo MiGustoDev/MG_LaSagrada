@@ -4,7 +4,6 @@ import { supabase } from './utils/supabase';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import IngredientsSection from './components/IngredientsSection';
-import PreLaunchSection from './components/PreLaunchSection';
 import PreLaunchMarquee from './components/PreLaunchMarquee';
 import Footer from './components/Footer';
 
@@ -20,7 +19,6 @@ function FullSite() {
         <IngredientsSection />
         <PreLaunchMarquee />
       </main>
-      <PreLaunchSection />
       <Footer />
     </div>
   );
