@@ -27,6 +27,10 @@ function FullSite() {
 function App() {
   useEffect(() => {
     async function verifySupabase() {
+      if (!supabase) {
+        console.warn('[Supabase] Variables de entorno no configuradas');
+        return;
+      }
       const { error } = await supabase.auth.getSession();
       if (error) {
         console.error('[Supabase] Error de conexión:', error.message);
