@@ -1,5 +1,5 @@
 export default function PreLaunchMarquee() {
-  const text = "MI GUSTO x LA SAGRADA  •  UN GUSTO HECHO RITUAL  •  PRÓXIMAMENTE  •";
+  const text = "LA SAGRADA  •  UN GUSTO HECHO RITUAL";
   
   // Repeat the text to ensure it covers the screen width comfortably
   const repeatedText = Array(4).fill(text).join("  •  ");
