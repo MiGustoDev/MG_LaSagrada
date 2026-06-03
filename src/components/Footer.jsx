@@ -41,7 +41,9 @@ export default function Footer() {
             <div className="flex items-center gap-5">
               {/* Instagram */}
               <a
-                href="#"
+                href="https://www.instagram.com/migustoar/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="text-[#12121d] hover:text-[#12121d]/70 transition-colors duration-200 hover:scale-110 transform"
               >
@@ -52,7 +54,9 @@ export default function Footer() {
 
               {/* X (Twitter) */}
               <a
-                href="#"
+                href="https://x.com/migustoar"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="X"
                 className="text-[#12121d] hover:text-[#12121d]/70 transition-colors duration-200 hover:scale-110 transform"
               >
@@ -63,7 +67,9 @@ export default function Footer() {
 
               {/* TikTok */}
               <a
-                href="#"
+                href="https://www.tiktok.com/@migustoar"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="TikTok"
                 className="text-[#12121d] hover:text-[#12121d]/70 transition-colors duration-200 hover:scale-110 transform"
               >

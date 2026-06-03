@@ -16,6 +16,24 @@ function GoldenStar({ className }) {
   );
 }
 
+function FlipDigit({ digit }) {
+  return (
+    <div
+      className="relative bg-white border border-white/10 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden shrink-0"
+      style={{ perspective: '600px' }}
+    >
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-black/[0.02] border-b border-black/[0.05] z-20" />
+      <div className="absolute top-1/2 left-0 w-full h-px bg-black/20 z-30" />
+      <span
+        key={digit}
+        className="coming-soon-digit-anim relative z-10 font-headline-xl text-3xl md:text-5xl text-[#12121d] leading-none font-bold select-none"
+      >
+        {digit}
+      </span>
+    </div>
+  );
+}
+
 // Configuración de exactamente 4 nubes grandes y majestuosas distribuidas por todo el cielo (costados y centro)
 const cloudsData = [
   { id: 1, left: '8%', top: '6%', size: 'w-48 md:w-80 h-auto', speed: 220, dir: 1, start: -80, opacity: 'opacity-80' },
@@ -123,20 +141,8 @@ export default function IngredientsSection() {
           {/* Days */}
           <div className="flex flex-col items-center">
             <div className="flex gap-1.5">
-              {/* Tens */}
-              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
-                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
-                  {String(countdown.days).padStart(2, '0')[0]}
-                </span>
-              </div>
-              {/* Units */}
-              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
-                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
-                  {String(countdown.days).padStart(2, '0')[1]}
-                </span>
-              </div>
+              <FlipDigit digit={String(countdown.days).padStart(2, '0')[0]} />
+              <FlipDigit digit={String(countdown.days).padStart(2, '0')[1]} />
             </div>
             <span className="font-label-sm text-[10px] text-white/80 mt-2 uppercase font-semibold">Días</span>
           </div>
@@ -146,20 +152,8 @@ export default function IngredientsSection() {
           {/* Hours */}
           <div className="flex flex-col items-center">
             <div className="flex gap-1.5">
-              {/* Tens */}
-              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
-                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
-                  {String(countdown.hours).padStart(2, '0')[0]}
-                </span>
-              </div>
-              {/* Units */}
-              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
-                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
-                  {String(countdown.hours).padStart(2, '0')[1]}
-                </span>
-              </div>
+              <FlipDigit digit={String(countdown.hours).padStart(2, '0')[0]} />
+              <FlipDigit digit={String(countdown.hours).padStart(2, '0')[1]} />
             </div>
             <span className="font-label-sm text-[10px] text-white/80 mt-2 uppercase font-semibold">Horas</span>
           </div>
@@ -169,20 +163,8 @@ export default function IngredientsSection() {
           {/* Minutes */}
           <div className="flex flex-col items-center">
             <div className="flex gap-1.5">
-              {/* Tens */}
-              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
-                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
-                  {String(countdown.mins).padStart(2, '0')[0]}
-                </span>
-              </div>
-              {/* Units */}
-              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
-                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
-                  {String(countdown.mins).padStart(2, '0')[1]}
-                </span>
-              </div>
+              <FlipDigit digit={String(countdown.mins).padStart(2, '0')[0]} />
+              <FlipDigit digit={String(countdown.mins).padStart(2, '0')[1]} />
             </div>
             <span className="font-label-sm text-[10px] text-white/80 mt-2 uppercase font-semibold">Mins</span>
           </div>
@@ -192,20 +174,8 @@ export default function IngredientsSection() {
           {/* Seconds */}
           <div className="flex flex-col items-center">
             <div className="flex gap-1.5">
-              {/* Tens */}
-              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
-                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
-                  {String(countdown.secs).padStart(2, '0')[0]}
-                </span>
-              </div>
-              {/* Units */}
-              <div className="relative bg-[#18181b] border border-black/25 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-black/15 border-b border-black/30 z-20"></div>
-                <span className="relative z-10 font-headline-xl text-3xl md:text-5xl text-white block leading-none font-bold select-none">
-                  {String(countdown.secs).padStart(2, '0')[1]}
-                </span>
-              </div>
+              <FlipDigit digit={String(countdown.secs).padStart(2, '0')[0]} />
+              <FlipDigit digit={String(countdown.secs).padStart(2, '0')[1]} />
             </div>
             <span className="font-label-sm text-[10px] text-white/80 mt-2 uppercase font-semibold">Segs</span>
           </div>
@@ -227,23 +197,29 @@ export default function IngredientsSection() {
           </div>
 
           {/* Right Column: Text Content */}
-          <div className="flex flex-col gap-4 w-full max-w-[500px]">
-            <div className="space-y-2">
-              <h3 className="font-display-serif text-3xl md:text-4xl lg:text-5xl text-secondary-fixed tracking-widest leading-none">
-                LA SAGRADA
+          <div className="flex flex-col items-center text-center gap-4 w-full max-w-[500px]">
+            <div className="space-y-2 flex flex-col items-center w-full">
+              <h3 className="font-display-serif text-3xl md:text-4xl lg:text-5xl text-secondary-fixed tracking-widest leading-none text-center">
+                LA
+                <br />
+                SAGRADA
               </h3>
-              <p className="font-label-sm text-white/60 tracking-[0.4em] border-y border-white/20 py-1.5 inline-block text-xs">
+              <p className="font-label-sm text-white/60 tracking-[0.4em] border-y border-white/20 py-1.5 inline-block text-xs text-center">
                 UN RITUAL HECHO PARA COMPARTIR
               </p>
             </div>
 
-            <div className="flex items-center gap-4 transition-all">
+            <div className="flex items-center justify-center gap-4 transition-all w-full">
               <span className="font-headline-lg-mobile italic text-white text-base md:text-lg">Locos X el Asado</span>
               <div className="w-[1px] h-6 bg-white/20"></div>
-              <span className="font-headline-lg-mobile font-bold text-white text-base md:text-lg">Mi Gusto</span>
+              <img 
+                src={`${import.meta.env.BASE_URL}Logo Mi Gusto 2025.png`} 
+                alt="Mi Gusto Logo" 
+                className="h-5 md:h-7 object-contain brightness-0 invert" 
+              />
             </div>
 
-            <div className="space-y-3 text-white/90 font-body-md text-xs md:text-sm leading-relaxed">
+            <div className="space-y-3 text-white/90 font-body-md text-xs md:text-sm leading-relaxed text-center">
               <p>
                 Dos mundos colisionan en un ritual de sabor sin precedentes. La maestría del asado se fusiona con la
                 innovación de la empanada perfecta para crear una experiencia sensorial que desafía lo convencional.

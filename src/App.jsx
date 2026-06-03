@@ -8,7 +8,7 @@ import PreLaunchMarquee from './components/PreLaunchMarquee';
 import Footer from './components/Footer';
 
 // Cambiar a true cuando quieras volver a mostrar el sitio completo
-const SHOW_FULL_SITE = true;
+const SHOW_FULL_SITE = false;
 
 function FullSite() {
   return (
