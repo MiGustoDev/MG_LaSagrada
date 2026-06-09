@@ -88,10 +88,20 @@ export default function IngredientsSection() {
     <section 
       ref={sectionRef} 
       className="relative w-full min-h-screen overflow-hidden flex flex-col justify-between py-12 md:py-16 z-10"
-      style={{
-        background: 'linear-gradient(to bottom, #75AADB 0%, #4A90E2 30%, #1D3F72 60%, #12121d 100%)'
-      }}
     >
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <video
+          className="h-full w-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          src={`${import.meta.env.BASE_URL}fondo%20video.mp4`}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-300/15 via-blue-900/20 to-[#12121d]/55" />
+      </div>
+
       {/* Dynamic Multi-layered Cloud Parallax System */}
       {cloudsData.map((cloud) => {
         const style = {};
