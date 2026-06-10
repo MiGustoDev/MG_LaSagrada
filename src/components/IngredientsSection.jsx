@@ -121,32 +121,11 @@ export default function IngredientsSection() {
         );
       })}
 
-      {/* TOP HALF: Sun, Clouds, and Large Countdown Cards */}
+      {/* TOP HALF: Countdown, Sun, and Stars */}
       <div className="relative w-full flex-1 flex flex-col items-center justify-center gap-6 md:gap-8 z-10 min-h-[45vh] pt-6">
-        
-        {/* Sun & Stars Container - Placed in flow to never get covered by the cards */}
-        <div 
-          className="flex flex-col items-center justify-center pointer-events-none transition-transform duration-300"
-          style={{ transform: `translateY(${sunOffset * 0.2}px)` }}
-        >
-          {/* Three World Cup Stars (Triangular formation) */}
-          <div className="flex justify-center items-end gap-1.5 md:gap-3 mb-2 opacity-90 drop-shadow-[0_0_12px_rgba(255,225,109,0.5)]">
-            <GoldenStar className="h-5 w-5 md:h-7 md:w-7 animate-[bounce_3s_infinite_100ms] -rotate-12" />
-            <GoldenStar className="h-7 w-7 md:h-9 md:w-9 animate-[bounce_3s_infinite_500ms] translate-y-[-4px]" />
-            <GoldenStar className="h-5 w-5 md:h-7 md:w-7 animate-[bounce_3s_infinite_300ms] rotate-12" />
-          </div>
-
-          <div className="sun-glow opacity-60 md:opacity-85">
-            <img 
-              src={`${import.meta.env.BASE_URL}sol.png`} 
-              alt="Sol" 
-              className="h-28 w-28 md:h-36 md:w-36 object-contain animate-[spin_100s_linear_infinite]"
-            />
-          </div>
-        </div>
 
         {/* Countdown Cards */}
-        <div className="flex items-center gap-2.5 md:gap-4">
+        <div className="flex items-center gap-2.5 md:gap-4 mb-2 md:mb-4">
           
           {/* Days */}
           <div className="flex flex-col items-center">
@@ -191,6 +170,27 @@ export default function IngredientsSection() {
           </div>
           
         </div>
+
+        {/* Sun & Stars Container - Placed below the counter so it reads top-to-bottom */}
+        <div 
+          className="flex flex-col items-center justify-center pointer-events-none transition-transform duration-300"
+          style={{ transform: `translateY(${sunOffset * 0.2}px)` }}
+        >
+          {/* Three World Cup Stars (Triangular formation) */}
+          <div className="flex justify-center items-end gap-1.5 md:gap-3 mb-2 opacity-90 drop-shadow-[0_0_12px_rgba(255,225,109,0.5)]">
+            <GoldenStar className="h-5 w-5 md:h-7 md:w-7 animate-[bounce_3s_infinite_100ms] -rotate-12" />
+            <GoldenStar className="h-7 w-7 md:h-9 md:w-9 animate-[bounce_3s_infinite_500ms] translate-y-[-4px]" />
+            <GoldenStar className="h-5 w-5 md:h-7 md:w-7 animate-[bounce_3s_infinite_300ms] rotate-12" />
+          </div>
+
+          <div className="sun-glow opacity-60 md:opacity-85">
+            <img 
+              src={`${import.meta.env.BASE_URL}sol.png`} 
+              alt="Sol" 
+              className="h-32 w-32 md:h-44 md:w-44 object-contain animate-[spin_100s_linear_infinite]"
+            />
+          </div>
+        </div>
       </div>
 
       {/* BOTTOM HALF: Ingredients Image & Text Story (Two columns) */}
@@ -200,7 +200,7 @@ export default function IngredientsSection() {
           {/* Left Column: Image */}
           <div className="w-full flex items-center justify-center">
             <img
-              className="max-h-[35vh] md:max-h-[42vh] w-auto object-contain transition-all duration-300 hover:scale-[1.02]"
+              className="max-h-[40vh] md:max-h-[48vh] w-auto object-contain transition-all duration-300 hover:scale-[1.02]"
               alt="Ingredientes de La Sagrada"
               src={`${import.meta.env.BASE_URL}Ingredientes.png`}
             />
