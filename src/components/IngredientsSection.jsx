@@ -47,6 +47,7 @@ export default function IngredientsSection() {
   const [sunOffset, setSunOffset] = useState(200);
   const [countdown, setCountdown] = useState(getCountdownParts);
   const sectionRef = useRef(null);
+  const lateralReveal = Math.max(0, Math.min(1, (scrollProgress - 0.12) / 0.45));
 
   // Parallax scroll effects for clouds and sun
   useEffect(() => {
@@ -73,6 +74,7 @@ export default function IngredientsSection() {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -187,7 +189,7 @@ export default function IngredientsSection() {
             <img 
               src={`${import.meta.env.BASE_URL}sol.png`} 
               alt="Sol" 
-              className="h-32 w-32 md:h-44 md:w-44 object-contain animate-[spin_100s_linear_infinite]"
+              className="h-36 w-36 md:h-48 md:w-48 object-contain animate-[spin_100s_linear_infinite]"
             />
           </div>
         </div>
@@ -198,23 +200,35 @@ export default function IngredientsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 items-center justify-items-center w-full">
           
           {/* Left Column: Image */}
-          <div className="w-full flex items-center justify-center">
+          <div
+            className="w-full flex items-center justify-center transition-all duration-900 ease-out will-change-transform will-change-opacity"
+            style={{
+              opacity: lateralReveal,
+              transform: `translateX(${(1 - lateralReveal) * -140}px) translateY(${(1 - lateralReveal) * 12}px) scale(${0.985 + lateralReveal * 0.015})`
+            }}
+          >
             <img
-              className="max-h-[40vh] md:max-h-[48vh] w-auto object-contain transition-all duration-300 hover:scale-[1.02]"
+              className="max-h-[44vh] md:max-h-[52vh] w-auto object-contain transition-all duration-300 hover:scale-[1.03]"
               alt="Ingredientes de La Sagrada"
               src={`${import.meta.env.BASE_URL}Ingredientes.png`}
             />
           </div>
 
           {/* Right Column: Text Content */}
-          <div className="flex flex-col items-center text-center gap-4 w-full max-w-[500px]">
+          <div
+            className="flex flex-col items-center text-center gap-4 w-full max-w-[500px] transition-all duration-900 ease-out will-change-transform will-change-opacity"
+            style={{
+              opacity: lateralReveal,
+              transform: `translateX(${(1 - lateralReveal) * 140}px) translateY(${(1 - lateralReveal) * 12}px)`
+            }}
+          >
             <div className="space-y-2 flex flex-col items-center w-full">
               <h3 className="font-display-serif text-3xl md:text-4xl lg:text-5xl text-secondary-fixed tracking-widest leading-none text-center">
                 LA
                 <br />
                 SAGRADA
               </h3>
-              <p className="font-label-sm text-white/60 tracking-[0.4em] border-y border-white/20 py-1.5 inline-block text-xs text-center">
+              <p className="font-label-sm text-white/65 tracking-[0.4em] border-y border-white/20 py-1.5 inline-block text-xs text-center">
                 UN RITUAL HECHO PARA COMPARTIR
               </p>
             </div>
