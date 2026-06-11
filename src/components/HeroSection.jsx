@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 export default function HeroSection() {
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
 
@@ -36,23 +38,52 @@ export default function HeroSection() {
     return () => observer.disconnect();
   }, []);
 
+  // Controlar la reproducción según visibilidad y estado de silencio
   useEffect(() => {
     const video = videoRef.current;
-
     if (!video) return;
 
     if (isHeroVisible) {
-      video.muted = false;
-      video.play().catch(() => {
-        // Si el navegador bloquea el audio, reproducimos muteado
-        video.muted = true;
+      if (!isMuted) {
+        // Intentar reproducir desmuteado
+        video.play().catch(() => {
+          // Si el navegador bloquea el audio, reproducimos muteado y actualizamos estado
+          setIsMuted(true);
+          video.play().catch(() => {});
+        });
+      } else {
+        // Reproducir de forma segura (muteado)
         video.play().catch(() => {});
-      });
+      }
     } else {
-      video.muted = true;
       video.pause();
     }
+  }, [isHeroVisible, isMuted]);
+
+  // Habilitar audio tras la primera interacción del usuario (click o touch)
+  useEffect(() => {
+    const handleInteraction = () => {
+      setHasInteracted(true);
+      if (isHeroVisible) {
+        setIsMuted(false);
+      }
+    };
+
+    window.addEventListener('click', handleInteraction);
+    window.addEventListener('touchstart', handleInteraction);
+
+    return () => {
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
   }, [isHeroVisible]);
+
+  // Si la sección vuelve a ser visible y el usuario ya interactuó, desmutear
+  useEffect(() => {
+    if (isHeroVisible && hasInteracted) {
+      setIsMuted(false);
+    }
+  }, [isHeroVisible, hasInteracted]);
 
   return (
     <section ref={sectionRef} className="relative w-full h-screen overflow-hidden hero-gradient flex items-center justify-center group">
@@ -63,7 +94,7 @@ export default function HeroSection() {
           preload="auto"
           autoPlay
           loop
-          muted
+          muted={isMuted}
           playsInline
           src={`${import.meta.env.BASE_URL}Main-video.mov`}
         />
