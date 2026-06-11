@@ -81,11 +81,12 @@ export default function ComingSoonScreen() {
         <video
           className="w-full h-full object-cover"
           style={{ opacity: VIDEO_OPACITY }}
+          preload="metadata"
           autoPlay
           loop
           muted
           playsInline
-          src={`${import.meta.env.BASE_URL}Main-video.mp4`}
+          src={`${import.meta.env.BASE_URL}Main-video.mov`}
         />
       </div>
 
