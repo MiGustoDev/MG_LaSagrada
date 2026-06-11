@@ -206,12 +206,12 @@ export default function IngredientsSection() {
       </div>
 
       {/* BOTTOM HALF: Ingredients Image & Text Story (Two columns) */}
-      <div className="relative w-full flex items-center justify-center z-10 max-w-container-max mx-auto px-6 max-md:px-4 md:px-12 -mt-24 max-md:-mt-12 md:-mt-44 lg:-mt-56 min-h-[45vh] max-md:min-h-[38vh]">
+      <div className="relative w-full flex items-center justify-center z-10 max-w-container-max mx-auto px-6 max-md:px-4 md:px-12 -mt-24 max-md:-mt-18 md:-mt-44 lg:-mt-56 min-h-[45vh] max-md:min-h-[38vh]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-md:gap-4 md:gap-16 lg:gap-24 items-center justify-items-center w-full">
           
           {/* Left Column: Empanada Graphic */}
           <div
-            className="relative w-full max-w-[520px] max-md:max-w-[340px] md:max-w-[720px] lg:max-w-[900px] flex items-center justify-center transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-8 max-md:-mt-4 md:-mt-16 lg:-mt-24"
+            className="relative w-full max-w-[520px] max-md:max-w-[340px] md:max-w-[720px] lg:max-w-[900px] flex items-center justify-center transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-8 max-md:-mt-6 md:-mt-16 lg:-mt-24"
             style={{
               opacity: revealed ? 1 : 0,
               transform: revealed 
@@ -229,7 +229,7 @@ export default function IngredientsSection() {
 
           {/* Right Column: Text Content */}
           <div
-            className="flex flex-col items-center text-center gap-4 max-md:gap-3 w-full max-w-[500px] transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-28 max-md:-mt-14 md:-mt-52 lg:-mt-76"
+            className="flex flex-col items-center text-center gap-4 max-md:gap-2 w-full max-w-[500px] transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-28 max-md:-mt-24 md:-mt-52 lg:-mt-76"
             style={{
               opacity: revealed ? 1 : 0,
               transform: revealed 
@@ -241,7 +241,7 @@ export default function IngredientsSection() {
               <img 
                 src={`${import.meta.env.BASE_URL}LOGO LA SAGRADA dorado-8 copia.png`} 
                 alt="La Sagrada Logo" 
-                className="w-full max-w-[280px] max-md:max-w-[240px] sm:max-w-[380px] md:max-w-[450px] lg:max-w-none h-auto object-contain drop-shadow-2xl"
+                className="w-full max-w-[280px] max-md:max-w-[320px] sm:max-w-[380px] md:max-w-[450px] lg:max-w-none h-auto object-contain drop-shadow-2xl"
               />
             </div>
 
