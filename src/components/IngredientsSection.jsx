@@ -23,14 +23,14 @@ function GoldenStar({ className }) {
 function FlipDigit({ digit }) {
   return (
     <div
-      className="relative bg-white border border-white/10 rounded-md w-11 h-16 md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden shrink-0"
+      className="relative bg-white border border-white/10 rounded-md w-11 h-16 max-md:w-10 max-md:h-[3.875rem] md:w-14 md:h-20 flex items-center justify-center shadow-md overflow-hidden shrink-0"
       style={{ perspective: '600px' }}
     >
       <div className="absolute top-0 left-0 w-full h-1/2 bg-black/[0.02] border-b border-black/[0.05] z-20" />
       <div className="absolute top-1/2 left-0 w-full h-px bg-black/20 z-30" />
       <span
         key={digit}
-        className="coming-soon-digit-anim relative z-10 font-headline-xl text-3xl md:text-5xl text-[#12121d] leading-none font-bold select-none"
+        className="coming-soon-digit-anim relative z-10 font-headline-xl text-3xl max-md:text-[2.15rem] md:text-5xl text-[#12121d] leading-none font-bold select-none"
       >
         {digit}
       </span>
@@ -48,8 +48,22 @@ const cloudsData = [
 
 export default function IngredientsSection() {
   const [countdown, setCountdown] = useState(getCountdownParts);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
   const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+
+    const updateIsMobile = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    updateIsMobile();
+    mediaQuery.addEventListener('change', updateIsMobile);
+
+    return () => mediaQuery.removeEventListener('change', updateIsMobile);
+  }, []);
 
   // GSAP ScrollTrigger: Control reveal animation based on entering viewport
   useEffect(() => {
@@ -84,7 +98,7 @@ export default function IngredientsSection() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full min-h-screen overflow-hidden flex flex-col justify-between pt-12 pb-4 md:pt-16 md:pb-6 z-10"
+      className="relative w-full min-h-screen overflow-hidden flex flex-col justify-between pt-12 pb-4 max-md:pt-8 max-md:pb-3 md:pt-16 md:pb-6 z-10"
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
@@ -118,10 +132,10 @@ export default function IngredientsSection() {
       })}
 
       {/* TOP HALF: Countdown, Sun, and Stars */}
-      <div className="relative w-full flex flex-col items-center justify-start gap-4 md:gap-6 z-10 min-h-[30vh] md:min-h-[35vh] pt-6">
+      <div className="relative w-full flex flex-col items-center justify-start gap-4 max-md:gap-1.5 md:gap-6 z-10 min-h-[30vh] max-md:min-h-[24vh] md:min-h-[35vh] pt-6 max-md:pt-4">
 
         {/* Countdown Cards */}
-        <div className="relative z-30 flex items-center gap-2.5 md:gap-4 mb-2 md:mb-4">
+        <div className="relative z-30 flex items-center gap-2.5 max-md:gap-1.5 md:gap-4 mb-2 md:mb-4 max-md:scale-[0.9] max-md:origin-top">
           
           {/* Days */}
           <div className="flex flex-col items-center">
@@ -169,12 +183,16 @@ export default function IngredientsSection() {
 
         {/* Sun Container - Placed absolutely behind the counter */}
         <div 
-          className="absolute left-1/2 -translate-x-1/2 bottom-[10%] pointer-events-none transition-all duration-[1500ms] ease-out z-10"
+          className="absolute left-1/2 -translate-x-1/2 bottom-[10%] max-md:bottom-[2%] pointer-events-none transition-all duration-[1500ms] ease-out z-10"
           style={{ 
             opacity: revealed ? 1 : 0,
             transform: revealed 
-              ? `translate3d(-50%, -180px, 0) scale(1.35) rotate(180deg)` 
-              : `translate3d(-50%, 160px, 0) scale(0.7) rotate(0deg)`
+              ? isMobile
+                ? `translate3d(-50%, -72px, 0) scale(1.35) rotate(180deg)`
+                : `translate3d(-50%, -180px, 0) scale(1.35) rotate(180deg)`
+              : isMobile
+                ? `translate3d(-50%, 92px, 0) scale(0.7) rotate(0deg)`
+                : `translate3d(-50%, 160px, 0) scale(0.7) rotate(0deg)`
           }}
         >
           <div className="sun-glow opacity-90 drop-shadow-[0_0_45px_rgba(255,225,109,0.65)]">
@@ -188,12 +206,12 @@ export default function IngredientsSection() {
       </div>
 
       {/* BOTTOM HALF: Ingredients Image & Text Story (Two columns) */}
-      <div className="relative w-full flex items-center justify-center z-10 max-w-container-max mx-auto px-6 md:px-12 -mt-24 md:-mt-44 lg:-mt-56 min-h-[45vh]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 items-center justify-items-center w-full">
+      <div className="relative w-full flex items-center justify-center z-10 max-w-container-max mx-auto px-6 max-md:px-4 md:px-12 -mt-24 max-md:-mt-12 md:-mt-44 lg:-mt-56 min-h-[45vh] max-md:min-h-[38vh]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-md:gap-4 md:gap-16 lg:gap-24 items-center justify-items-center w-full">
           
           {/* Left Column: Empanada Graphic */}
           <div
-            className="relative w-full max-w-[520px] md:max-w-[720px] lg:max-w-[900px] flex items-center justify-center transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-8 md:-mt-16 lg:-mt-24"
+            className="relative w-full max-w-[520px] max-md:max-w-[340px] md:max-w-[720px] lg:max-w-[900px] flex items-center justify-center transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-8 max-md:-mt-4 md:-mt-16 lg:-mt-24"
             style={{
               opacity: revealed ? 1 : 0,
               transform: revealed 
@@ -203,7 +221,7 @@ export default function IngredientsSection() {
           >
             {/* The Empanada Image */}
             <img
-              className="w-[120%] sm:w-[130%] md:w-[145%] lg:w-[160%] max-w-none h-auto object-contain z-20"
+              className="w-[120%] max-md:w-[115%] sm:w-[130%] md:w-[145%] lg:w-[160%] max-w-none h-auto object-contain z-20"
               alt="La Sagrada Empanada"
               src={`${import.meta.env.BASE_URL}Ingredientes.png`}
             />
@@ -211,7 +229,7 @@ export default function IngredientsSection() {
 
           {/* Right Column: Text Content */}
           <div
-            className="flex flex-col items-center text-center gap-4 w-full max-w-[500px] transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-28 md:-mt-52 lg:-mt-76"
+            className="flex flex-col items-center text-center gap-4 max-md:gap-3 w-full max-w-[500px] transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-28 max-md:-mt-14 md:-mt-52 lg:-mt-76"
             style={{
               opacity: revealed ? 1 : 0,
               transform: revealed 
@@ -223,7 +241,7 @@ export default function IngredientsSection() {
               <img 
                 src={`${import.meta.env.BASE_URL}LOGO LA SAGRADA dorado-8 copia.png`} 
                 alt="La Sagrada Logo" 
-                className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px] lg:max-w-none h-auto object-contain drop-shadow-2xl"
+                className="w-full max-w-[280px] max-md:max-w-[240px] sm:max-w-[380px] md:max-w-[450px] lg:max-w-none h-auto object-contain drop-shadow-2xl"
               />
             </div>
 
