@@ -27,7 +27,7 @@ export default function HeroSection() {
         setIsHeroVisible(visible);
       },
       {
-        threshold: 0.55,
+        threshold: 0.2,
       }
     );
 
@@ -41,12 +41,16 @@ export default function HeroSection() {
 
     if (!video) return;
 
-    video.muted = !isHeroVisible;
-
     if (isHeroVisible) {
+      video.muted = false;
       video.play().catch(() => {
+        // Si el navegador bloquea el audio, reproducimos muteado
         video.muted = true;
+        video.play().catch(() => {});
       });
+    } else {
+      video.muted = true;
+      video.pause();
     }
   }, [isHeroVisible]);
 
@@ -56,10 +60,10 @@ export default function HeroSection() {
         <video
           ref={videoRef}
           className="w-full h-full object-cover opacity-60 lg:opacity-100 lg:mix-blend-normal lg:filter-none md:max-lg:opacity-100 md:max-lg:mix-blend-normal md:max-lg:filter-none max-md:object-cover max-md:object-center max-md:scale-[1.18] max-md:opacity-100"
-          preload="metadata"
+          preload="auto"
           autoPlay
           loop
-          muted={!isHeroVisible}
+          muted
           playsInline
           src={`${import.meta.env.BASE_URL}Main-video.mov`}
         />

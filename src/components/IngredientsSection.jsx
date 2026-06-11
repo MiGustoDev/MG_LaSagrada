@@ -235,7 +235,7 @@ export default function IngredientsSection() {
                 Hay países donde el fútbol se mira. Y después estamos los argentinos, donde el fútbol se vive con pasión. Acá el Mundial es cábala, grito antes del gol, nervios compartidos y discusión por quién baja a abrirle al delivery en medio del partido.
               </p>
               <p>
-                Por eso, junto a Locos x el Asado, creamos el gusto que celebra el orgullo de ser argentino y el ritual más importante de todos: La previa. Un gusto lleno de argentinidad, con chorizo suave, provoleta y una salsa especialmente creada para celebrar lo que somos: hinchas de nuestras costumbres.
+                Por eso, junto a <span className="font-semibold">Locos x el Asado</span>, creamos el gusto que celebra el orgullo de ser argentino y el ritual más importante de todos: <span className="font-semibold">La previa.</span> Un gusto lleno de argentinidad, con chorizo suave, provoleta y una salsa especialmente creada para celebrar lo que somos: <span className="font-semibold">hinchas de nuestras costumbres.</span>
               </p>
             </div>
           </div>
