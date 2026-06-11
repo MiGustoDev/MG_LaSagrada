@@ -232,12 +232,10 @@ export default function IngredientsSection() {
 
             <div className="space-y-3 text-white/90 font-body-md text-xs md:text-sm md:max-lg:text-base leading-relaxed text-center -mt-3 md:-mt-5">
               <p>
-                Dos mundos colisionan en un ritual de sabor sin precedentes. La maestría del asado se fusiona con la
-                innovación de la empanada perfecta para crear una experiencia sensorial que desafía lo convencional.
+                Hay países donde el fútbol se mira. Y después estamos los argentinos, donde el fútbol se vive con pasión. Acá el Mundial es cábala, grito antes del gol, nervios compartidos y discusión por quién baja a abrirle al delivery en medio del partido.
               </p>
               <p>
-                Cada bocado es una coreografía de texturas: el crocante audaz del topping, la suavidad de la masa
-                artesanal y el corazón intenso de nuestra receta secreta de asado.
+                Por eso, junto a Locos x el Asado, creamos el gusto que celebra el orgullo de ser argentino y el ritual más importante de todos: La previa. Un gusto lleno de argentinidad, con chorizo suave, provoleta y una salsa especialmente creada para celebrar lo que somos: hinchas de nuestras costumbres.
               </p>
             </div>
           </div>
