@@ -66,7 +66,7 @@ export default function HeroSection() {
       </div>
       <div className="relative z-10 text-center flex flex-col items-center justify-center gap-6 md:gap-8 max-w-lg px-4 max-md:absolute max-md:left-1/2 max-md:bottom-[6%] max-md:-translate-x-1/2 max-md:px-0 md:max-lg:absolute md:max-lg:left-1/2 md:max-lg:bottom-[10%] md:max-lg:-translate-x-1/2 md:max-lg:px-0 lg:absolute lg:left-1/2 lg:bottom-[10%] lg:-translate-x-1/2 lg:px-0">
         <a
-          href="https://www.tepido.com.ar/index.html"
+          href="https://pedir.migusto.com.ar/index.php?_gl=1*1k63vdc*_gcl_au*MzU5MTk3NzIyLjE3Nzk0NjIxNDU.*_ga*MTkxMTIyMzE5MC4xNzc5NDYyMTQ1*_ga_5VWX9KLVCC*czE3ODExOTYyMTgkbzEzJGcwJHQxNzgxMTk2MjE4JGo2MCRsMCRoNzYyODQxMDE."
           target="_blank"
           rel="noopener noreferrer"
           className="mt-24 md:mt-28 max-md:mt-0 md:max-lg:mt-0 lg:mt-0 bg-transparent text-white border-2 border-white font-headline-lg text-sm sm:text-base md:text-lg px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-md uppercase tracking-widest whitespace-nowrap hover:bg-white/10 transition-all duration-300 shadow-lg shadow-white/10 hover:-translate-y-0.5 active:translate-y-0 md:max-lg:px-7 md:max-lg:py-2.5 flex items-center justify-center"
