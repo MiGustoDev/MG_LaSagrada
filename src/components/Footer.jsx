@@ -5,28 +5,28 @@ export default function Footer() {
     }}>
       {/* Soft fade-in blur from the section above */}
       <div
-        className="absolute top-0 left-0 w-full h-32 pointer-events-none"
+        className="absolute top-0 left-0 w-full h-20 md:h-32 pointer-events-none"
         style={{
           background: 'linear-gradient(to bottom, #f5f0e8 0%, transparent 100%)'
         }}
       />
 
-      <div className="relative z-10 max-w-container-max mx-auto px-8 md:px-16 pt-28 pb-10">
+      <div className="relative z-10 max-w-container-max mx-auto px-6 md:px-16 pt-16 md:pt-28 pb-6 md:pb-10">
         {/* Three-column layout */}
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10 md:gap-6">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-5 md:gap-6">
 
           {/* LEFT — Logo */}
           <div className="flex items-center justify-center md:justify-start md:w-1/4">
             <img
               src={`${import.meta.env.BASE_URL}Logo Mi Gusto 2025.png`}
               alt="Mi Gusto Logo"
-              className="h-16 md:h-20 w-auto object-contain drop-shadow-md"
+              className="h-12 md:h-20 w-auto object-contain drop-shadow-md"
             />
           </div>
 
           {/* CENTER — Legal text */}
-          <div className="flex flex-col items-center text-center md:w-2/4 gap-3">
-            <p className="font-body-md text-sm text-[#12121d]/85 leading-relaxed">
+          <div className="flex flex-col items-center text-center md:w-2/4 gap-2 md:gap-3">
+            <p className="font-body-md text-[11px] md:text-sm text-[#12121d]/85 leading-snug md:leading-relaxed max-w-[22rem] md:max-w-none">
               <strong>Mi Gusto ®</strong> es una empresa de La Honoria Alimentos SA — Argentina — CUIT: 30-71558654-8
               <span className="mx-1">|</span>
               Todos los derechos reservados.
@@ -34,11 +34,11 @@ export default function Footer() {
           </div>
 
           {/* RIGHT — Social Media */}
-          <div className="flex flex-col items-center md:items-end md:w-1/4 gap-4">
-            <p className="font-label-sm text-xs uppercase tracking-[0.2em] text-[#12121d] font-semibold">
+          <div className="flex flex-col items-center md:items-end md:w-1/4 gap-2 md:gap-4">
+            <p className="font-label-sm text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#12121d] font-semibold">
               Seguinos en Redes
             </p>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-4 md:gap-5">
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/migustoar/"
@@ -82,8 +82,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom divider line with perfect contrast */}
-        <div className="mt-10 pt-4 border-t border-[#12121d]/15 text-center">
-          <p className="font-body-md text-xs text-[#12121d]/75">
+        <div className="mt-6 md:mt-10 pt-3 md:pt-4 border-t border-[#12121d]/15 text-center">
+          <p className="font-body-md text-[11px] md:text-xs text-[#12121d]/75 leading-snug">
             Desarrollado por el <strong className="font-bold underline text-[#12121d]">Departamento de sistemas</strong> de Mi Gusto 🥟
           </p>
         </div>
