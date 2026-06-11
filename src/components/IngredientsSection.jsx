@@ -29,8 +29,7 @@ function FlipDigit({ digit }) {
       <div className="absolute top-0 left-0 w-full h-1/2 bg-black/[0.02] border-b border-black/[0.05] z-20" />
       <div className="absolute top-1/2 left-0 w-full h-px bg-black/20 z-30" />
       <span
-        key={digit}
-        className="coming-soon-digit-anim relative z-10 font-headline-xl text-3xl max-md:text-[2.15rem] md:text-5xl text-[#12121d] leading-none font-bold select-none"
+        className="relative z-10 font-headline-xl text-3xl max-md:text-[2.15rem] md:text-5xl text-[#12121d] leading-none font-bold select-none"
       >
         {digit}
       </span>
@@ -89,7 +88,9 @@ export default function IngredientsSection() {
 
   // Cuenta regresiva hasta el 11/06/2026 (medianoche Argentina)
   useEffect(() => {
-    const tick = () => setCountdown(getCountdownParts());
+    const tick = () => {
+      setCountdown(getCountdownParts());
+    };
     tick();
     const interval = setInterval(tick, 1000);
     return () => clearInterval(interval);
