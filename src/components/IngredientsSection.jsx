@@ -44,20 +44,27 @@ const cloudsData = [
 export default function IngredientsSection() {
   const [countdown, setCountdown] = useState(getCountdownParts);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const sectionRef = useRef(null);
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 767px)');
+    const mobileQuery = window.matchMedia('(max-width: 767px)');
+    const tabletQuery = window.matchMedia('(min-width: 768px) and (max-width: 1024px)');
 
-    const updateIsMobile = () => {
-      setIsMobile(mediaQuery.matches);
+    const updateMatches = () => {
+      setIsMobile(mobileQuery.matches);
+      setIsTablet(tabletQuery.matches);
     };
 
-    updateIsMobile();
-    mediaQuery.addEventListener('change', updateIsMobile);
+    updateMatches();
+    mobileQuery.addEventListener('change', updateMatches);
+    tabletQuery.addEventListener('change', updateMatches);
 
-    return () => mediaQuery.removeEventListener('change', updateIsMobile);
+    return () => {
+      mobileQuery.removeEventListener('change', updateMatches);
+      tabletQuery.removeEventListener('change', updateMatches);
+    };
   }, []);
 
   useEffect(() => {
@@ -168,10 +175,14 @@ export default function IngredientsSection() {
             transform: revealed
               ? isMobile
                 ? `translate3d(-50%, -72px, 0) scale(1.35) rotate(180deg)`
-                : `translate3d(-50%, -145px, 0) scale(1.35) rotate(180deg)`
+                : isTablet
+                  ? `translate3d(-50%, -115px, 0) scale(1.35) rotate(180deg)`
+                  : `translate3d(-50%, -145px, 0) scale(1.35) rotate(180deg)`
               : isMobile
                 ? `translate3d(-50%, 92px, 0) scale(0.7) rotate(0deg)`
-                : `translate3d(-50%, 135px, 0) scale(0.7) rotate(0deg)`
+                : isTablet
+                  ? `translate3d(-50%, 115px, 0) scale(0.7) rotate(0deg)`
+                  : `translate3d(-50%, 135px, 0) scale(0.7) rotate(0deg)`
           }}
         >
           <div className="sun-glow opacity-90 drop-shadow-[0_0_45px_rgba(255,225,109,0.65)]">
@@ -184,10 +195,10 @@ export default function IngredientsSection() {
         </div>
       </div>
 
-      <div className="relative w-full flex items-center justify-center z-10 max-w-container-max mx-auto px-6 max-md:px-4 md:px-12 -mt-24 max-md:-mt-18 md:-mt-44 md:max-lg:-mt-80 lg:-mt-56 min-h-[45vh] max-md:min-h-[38vh] md:max-lg:min-h-[0]">
+      <div className="relative w-full flex items-center justify-center z-10 max-w-container-max mx-auto px-6 max-md:px-4 md:px-12 -mt-24 max-md:-mt-18 md:-mt-44 md:max-lg:-mt-76 lg:-mt-56 min-h-[45vh] max-md:min-h-[38vh] md:max-lg:min-h-[0]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-md:gap-4 md:gap-16 lg:gap-24 md:max-lg:grid-cols-1 md:max-lg:gap-1 md:max-lg:items-center md:max-lg:justify-items-center items-center justify-items-center w-full">
           <div
-            className="relative w-full max-w-[520px] max-md:max-w-[340px] md:max-w-[720px] md:max-lg:max-w-[560px] lg:max-w-[900px] flex items-center justify-center transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-8 max-md:-mt-6 md:-mt-16 md:max-lg:-mt-10 lg:-mt-24"
+            className="relative w-full max-w-[520px] max-md:max-w-[340px] md:max-w-[720px] md:max-lg:max-w-[560px] lg:max-w-[900px] flex items-center justify-center transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-8 max-md:-mt-6 md:-mt-16 md:max-lg:-mt-2 lg:-mt-24"
             style={{
               opacity: revealed ? 1 : 0,
               transform: revealed
@@ -203,7 +214,7 @@ export default function IngredientsSection() {
           </div>
 
           <div
-            className="flex flex-col items-center text-center gap-4 max-md:gap-2 md:max-lg:gap-3 w-full max-w-[500px] md:max-lg:max-w-[620px] transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-28 max-md:-mt-24 md:-mt-52 md:max-lg:-mt-20 lg:-mt-76"
+            className="flex flex-col items-center text-center gap-4 max-md:gap-2 md:max-lg:gap-3 w-full max-w-[500px] md:max-lg:max-w-[620px] transition-all duration-[1200ms] ease-out will-change-transform will-change-opacity -mt-28 max-md:-mt-24 md:-mt-52 md:max-lg:-mt-48 lg:-mt-76"
             style={{
               opacity: revealed ? 1 : 0,
               transform: revealed
@@ -215,11 +226,11 @@ export default function IngredientsSection() {
               <img
                 src={`${import.meta.env.BASE_URL}LOGO LA SAGRADA dorado-8 copia.png`}
                 alt="La Sagrada Logo"
-                className="w-full max-w-[280px] max-md:max-w-[320px] sm:max-w-[380px] md:max-w-[450px] md:max-lg:max-w-[420px] lg:max-w-none h-auto object-contain drop-shadow-2xl"
+                className="w-full max-w-[280px] max-md:max-w-[320px] sm:max-w-[380px] md:max-w-[450px] md:max-lg:max-w-[530px] lg:max-w-none h-auto object-contain drop-shadow-2xl"
               />
             </div>
 
-            <div className="space-y-3 text-white/90 font-body-md text-xs md:text-sm leading-relaxed text-center -mt-3 md:-mt-5">
+            <div className="space-y-3 text-white/90 font-body-md text-xs md:text-sm md:max-lg:text-base leading-relaxed text-center -mt-3 md:-mt-5">
               <p>
                 Dos mundos colisionan en un ritual de sabor sin precedentes. La maestría del asado se fusiona con la
                 innovación de la empanada perfecta para crear una experiencia sensorial que desafía lo convencional.
