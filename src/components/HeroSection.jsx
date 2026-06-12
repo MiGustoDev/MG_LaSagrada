@@ -49,11 +49,11 @@ export default function HeroSection() {
         video.play().catch(() => {
           // Si el navegador bloquea el audio, reproducimos muteado y actualizamos estado
           setIsMuted(true);
-          video.play().catch(() => {});
+          video.play().catch(() => { });
         });
       } else {
         // Reproducir de forma segura (muteado)
-        video.play().catch(() => {});
+        video.play().catch(() => { });
       }
     } else {
       video.pause();
@@ -86,20 +86,20 @@ export default function HeroSection() {
   }, [isHeroVisible, hasInteracted]);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-screen overflow-hidden hero-gradient flex items-center justify-center group">
+    <section ref={sectionRef} className="relative w-full h-screen max-md:h-[80vh] overflow-hidden bg-[#12121d] flex items-center justify-center group">
       <div className="absolute inset-0 z-0" style={{ transform: `translateY(${parallaxOffset}px)` }}>
         <video
           ref={videoRef}
-          className="w-full h-full object-cover opacity-60 lg:opacity-100 lg:mix-blend-normal lg:filter-none md:max-lg:opacity-100 md:max-lg:mix-blend-normal md:max-lg:filter-none max-md:object-cover max-md:object-center max-md:scale-[1.18] max-md:opacity-100"
+          className="w-full h-full object-cover opacity-60 lg:opacity-100 lg:mix-blend-normal lg:filter-none md:max-lg:opacity-100 md:max-lg:mix-blend-normal md:max-lg:filter-none max-md:absolute max-md:top-0 max-md:left-0 max-md:w-full max-md:h-[80vh] max-md:object-cover max-md:object-center max-md:opacity-100"
           preload="auto"
           autoPlay
           loop
           muted={isMuted}
           playsInline
-          src={`${import.meta.env.BASE_URL}Main-video.mov`}
+          src={`${import.meta.env.BASE_URL}Main-video.webm`}
         />
       </div>
-      <div className="relative z-10 text-center flex flex-col items-center justify-center gap-6 md:gap-8 max-w-lg px-4 max-md:absolute max-md:left-1/2 max-md:bottom-[6%] max-md:-translate-x-1/2 max-md:px-0 md:max-lg:absolute md:max-lg:left-1/2 md:max-lg:bottom-[10%] md:max-lg:-translate-x-1/2 md:max-lg:px-0 lg:absolute lg:left-1/2 lg:bottom-[10%] lg:-translate-x-1/2 lg:px-0">
+      <div className="relative z-10 text-center flex flex-col items-center justify-center gap-6 md:gap-8 max-w-lg px-4 max-md:absolute max-md:left-1/2 max-md:bottom-[15%] max-md:-translate-x-1/2 max-md:px-0 md:max-lg:absolute md:max-lg:left-1/2 md:max-lg:bottom-[16%] md:max-lg:-translate-x-1/2 md:max-lg:px-0 lg:absolute lg:left-1/2 lg:bottom-[16%] lg:-translate-x-1/2 lg:px-0">
         <a
           href="https://pedir.migusto.com.ar/index.php?_gl=1*1k63vdc*_gcl_au*MzU5MTk3NzIyLjE3Nzk0NjIxNDU.*_ga*MTkxMTIyMzE5MC4xNzc5NDYyMTQ1*_ga_5VWX9KLVCC*czE3ODExOTYyMTgkbzEzJGcwJHQxNzgxMTk2MjE4JGo2MCRsMCRoNzYyODQxMDE."
           target="_blank"

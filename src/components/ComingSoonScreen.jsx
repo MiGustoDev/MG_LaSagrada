@@ -86,7 +86,7 @@ export default function ComingSoonScreen() {
           loop
           muted
           playsInline
-          src={`${import.meta.env.BASE_URL}Main-video.mov`}
+          src={`${import.meta.env.BASE_URL}Main-video.webm`}
         />
       </div>
 

@@ -1,5 +1,5 @@
-// Fecha de lanzamiento: 11 de junio de 2026 a las 18:00 hs (hora Argentina, UTC-3)
-export const LAUNCH_DATE = new Date('2026-06-11T18:00:00-03:00');
+// Fecha del próximo partido de Argentina: Martes 16 de junio de 2026 a las 22:00 hs (hora Argentina, UTC-3)
+export const LAUNCH_DATE = new Date('2026-06-16T22:00:00-03:00');
 
 export function getCountdownParts(now = new Date()) {
   const diff = LAUNCH_DATE - now;
