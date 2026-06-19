@@ -90,7 +90,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0" style={{ transform: `translateY(${parallaxOffset}px)` }}>
         <video
           ref={videoRef}
-          className="w-full h-full object-cover opacity-60 lg:opacity-100 lg:mix-blend-normal lg:filter-none md:max-lg:opacity-100 md:max-lg:mix-blend-normal md:max-lg:filter-none max-md:absolute max-md:top-0 max-md:left-0 max-md:w-full max-md:h-[80vh] max-md:object-cover max-md:object-center max-md:opacity-100"
+          className="w-full h-full object-cover opacity-60 lg:opacity-100 lg:mix-blend-normal lg:filter-none md:max-lg:opacity-100 md:max-lg:mix-blend-normal md:max-lg:filter-none max-md:absolute max-md:top-0 max-md:left-0 max-md:w-full max-md:h-full max-md:object-cover max-md:object-center max-md:opacity-100"
           preload="auto"
           autoPlay
           loop
@@ -99,6 +99,8 @@ export default function HeroSection() {
           src={`${import.meta.env.BASE_URL}Main-video.webm`}
         />
       </div>
+      {/* Bottom fade gradient overlay */}
+      <div className="absolute bottom-0 left-0 w-full h-32 md:h-48 bg-gradient-to-t from-[#12121d] via-[#12121d]/85 to-transparent z-10 pointer-events-none" />
       <div className="relative z-10 text-center flex flex-col items-center justify-center gap-6 md:gap-8 max-w-lg px-4 max-md:absolute max-md:left-1/2 max-md:bottom-[15%] max-md:-translate-x-1/2 max-md:px-0 md:max-lg:absolute md:max-lg:left-1/2 md:max-lg:bottom-[16%] md:max-lg:-translate-x-1/2 md:max-lg:px-0 lg:absolute lg:left-1/2 lg:bottom-[16%] lg:-translate-x-1/2 lg:px-0">
         <a
           href="https://pedir.migusto.com.ar/index.php?_gl=1*1k63vdc*_gcl_au*MzU5MTk3NzIyLjE3Nzk0NjIxNDU.*_ga*MTkxMTIyMzE5MC4xNzc5NDYyMTQ1*_ga_5VWX9KLVCC*czE3ODExOTYyMTgkbzEzJGcwJHQxNzgxMTk2MjE4JGo2MCRsMCRoNzYyODQxMDE."

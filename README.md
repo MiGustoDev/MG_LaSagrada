@@ -63,6 +63,9 @@ El proyecto ha sido construido utilizando estándares de desarrollo modernos par
   </tr>
 </table>
 
+> [!NOTE]
+> Las capturas anteriores muestran la interfaz activa en sus distintas resoluciones, destacando los componentes interactivos principales.
+
 ## 📄 Licencia
 
 © 2026 MI GUSTO. Todos los derechos reservados.
